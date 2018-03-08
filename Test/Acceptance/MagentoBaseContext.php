@@ -9,6 +9,8 @@ use Behat\MinkExtension\Context\RawMinkContext;
  */
 class MagentoBaseContext extends RawMinkContext
 {
+    use Page;
+
     /**
      * @var string $magentoUrl
      */
@@ -35,7 +37,7 @@ class MagentoBaseContext extends RawMinkContext
      */
     public function iShouldSeeTheEcommerceLogo()
     {
-        $page = $this->getPage();
+        $page = $this->getPageFromSession();
         $logo = $page->find('css', '.logo');
         $logo->isVisible();
     }
@@ -45,16 +47,11 @@ class MagentoBaseContext extends RawMinkContext
      */
     public function aProductsList()
     {
-        $page = $this->getPage();
+        $page = $this->getPageFromSession();
         
         $products = $page->findAll('css', '.product-item');
         if (count($products) <= 0) {
             throw new \Exception('There\'s no product on the page');
         }
-    }
-
-    public function getPage()
-    {
-        return $this->getSession()->getPage();
     }
 }
