@@ -10,6 +10,7 @@ use Behat\MinkExtension\Context\RawMinkContext;
 class MagentoBaseContext extends RawMinkContext
 {
     use Page;
+    use EnvironmentVariable;
 
     /**
      * @var string $magentoUrl
@@ -21,7 +22,7 @@ class MagentoBaseContext extends RawMinkContext
      */
     public function aMagentoEcommerce()
     {
-        $this->magentoUrl = getenv('MAGENTO_URL');
+        $this->magentoUrl = $this->getEnvFromName('MAGENTO_URL');
     }
 
     /**
