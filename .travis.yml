@@ -1,0 +1,18 @@
+sudo: required
+
+services:
+  - docker
+
+env:
+  global:
+    - DOCKER_COMPOSE_VERSION=1.18.0
+    - PATH_MODULE=vendor/pagarme/magento2
+before_install:
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
+
+script:
+  - docker-compose up -d && docker-compose exec magento install_pagarme && docker-compose exec magento install-sampledata
+  - behat --config ${PATH_MODULE}/behat.yml
