@@ -11,6 +11,7 @@ use Behat\MinkExtension\Context\RawMinkContext;
 class AdminContext extends RawMinkContext
 {
     use EnvironmentVariable;
+    use SessionWait;
 
     private $adminUser;
 
@@ -70,17 +71,15 @@ class AdminContext extends RawMinkContext
     public function iShouldSeePagarMeAsAnItemOnLeftMenu()
     {
         $page = $this->getSession()->getPage();
-        
-        $this->getSession()->wait(
-            1000,
-            "document.readyState === 'complete'"
+
+        $this->spin(
+            function($context) use($page) {
+                return ($page->find(
+                    'css',
+                    $this->getModuleMenuBarId()
+                )->isVisible());
+            }
         );
-        
-        $moduleItemMenuBar = $page->find(
-            'css',
-            $this->getModuleMenuBarId()
-        );
-        $moduleItemMenuBar->isVisible();
     }
 
     public function getAdmin()
