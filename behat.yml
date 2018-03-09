@@ -17,3 +17,9 @@ default:
         - "%paths.base%/Test/Acceptance/Features/magento_base.feature"
       contexts:
         - MagentoBaseContext
+
+    admin:
+      paths:
+        - "%paths.base%/Test/Acceptance/Features/admin.feature"
+      contexts:
+        - AdminContext
