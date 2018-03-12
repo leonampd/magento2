@@ -23,3 +23,9 @@ default:
         - "%paths.base%/Test/Acceptance/Features/admin.feature"
       contexts:
         - AdminContext
+
+    creditcard:
+      paths:
+        - "%paths.base%/Test/Acceptance/Features/creditcard.feature"
+      contexts:
+        - CreditCardContext
