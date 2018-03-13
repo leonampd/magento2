@@ -11,6 +11,7 @@ class MagentoBaseContext extends RawMinkContext
 {
     use Page;
     use EnvironmentVariable;
+    use SessionWait;
 
     /**
      * @var string $magentoUrl
@@ -39,6 +40,12 @@ class MagentoBaseContext extends RawMinkContext
     public function iShouldSeeTheEcommerceLogo()
     {
         $page = $this->getPageFromSession();
+        $this->spin(function($context) use ($page) {
+            return ($page->find(
+                'css',
+                '.logo'
+            )->isVisible());
+        });
         $logo = $page->find('css', '.logo');
         $logo->isVisible();
     }
@@ -50,9 +57,13 @@ class MagentoBaseContext extends RawMinkContext
     {
         $page = $this->getPageFromSession();
         
-        $products = $page->findAll('css', '.product-item');
-        if (count($products) <= 0) {
-            throw new \Exception('There\'s no product on the page');
-        }
+        $this->spin(function() use($page) {
+            $products = $page->findAll('css', '.product-item');
+            if (count($products) <= 0) {
+                throw new \Exception('There\'s no product on the page');
+            }
+
+            return $products;
+        });
     }
 }
