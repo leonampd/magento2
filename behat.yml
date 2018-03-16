@@ -4,7 +4,7 @@ default:
     - "%paths.base%/Test/Acceptance/"
   extensions:
     Behat\MinkExtension:
-      base_url: http://magento/
+      base_url: http://magento.local/
       sessions:
         default_session:
           selenium2:

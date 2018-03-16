@@ -6,7 +6,7 @@ services:
       - "4444:4444"
 
   firefox:
-    image: selenium/node-firefox:2.53.0
+    image: selenium/node-firefox-debug:2.53.0
     privileged: true
     depends_on:
       - selenium
@@ -28,6 +28,10 @@ services:
       - .env
     volumes:
       - .:/var/www/html/app/modules
+    networks:
+      default:
+        aliases:
+          - magento.local
   db:
     healthcheck:
       test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
