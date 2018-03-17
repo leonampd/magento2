@@ -27,13 +27,18 @@ class CreditCardContext extends RawMinkContext
      */
     public static function setUp(BeforeSuiteScope $suiteScope)
     {
+        $configs = [];
         $magentoConfigs = [
             'customer/address/street_lines' => 4, 
             'customer/create_account/vat_frontend_visibility' => 1,
             'customer/address/taxvat_show' => 'req'
         ];
 
-        foreach($magentoConfigs as $configKey => $configValue) {
+        $moduleConfigs = [];
+
+        $configs = array_merge($magentoConfigs, $moduleConfigs);
+
+        foreach($configs as $configKey => $configValue) {
             $command = sprintf(
                 'bin/magento config:set %s %s --lock',
                 $configKey,
