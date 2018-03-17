@@ -4,6 +4,7 @@ use Behat\Behat\Context\Context;
 use Behat\Gherkin\Node\PyStringNode;
 use Behat\Gherkin\Node\TableNode;
 use Behat\MinkExtension\Context\RawMinkContext;
+use Behat\Testwork\Hook\Scope\BeforeSuiteScope;
 
 /**
  * Defines application features from the specific context.
@@ -19,6 +20,30 @@ class CreditCardContext extends RawMinkContext
      */
     public function __construct()
     {
+    }
+
+    /**
+     * @beforeSuite
+     */
+    public static function setUp(BeforeSuiteScope $suiteScope)
+    {
+        $magentoConfigs = [
+            'customer/address/street_lines' => 4, 
+            'customer/create_account/vat_frontend_visibility' => 1,
+            'customer/address/taxvat_show' => 'req'
+        ];
+
+        foreach($magentoConfigs as $configKey => $configValue) {
+            $command = sprintf(
+                'bin/magento config:set %s %s --lock',
+                $configKey,
+                $configValue
+            );
+            exec($command, $output, $exitCode);
+            if ($exitCode != 0) {
+                throw new \Exception($output, $exitCode);
+            }
+        }
     }
 
     /**
