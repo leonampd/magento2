@@ -47,38 +47,14 @@
         <type id="JCB" order="8">
             <label>JCB</label>
         </type>
-        <type id="Credz" order="9">
-            <label>Credz</label>
-        </type>
-        <type id="SodexoAlimentacao" order="10">
-            <label>SodexoAlimentacao</label>
-        </type>
-        <type id="SodexoCultura" order="11">
-            <label>SodexoCultura</label>
-        </type>
-        <type id="SodexoGift" order="12">
-            <label>SodexoGift</label>
-        </type>
-        <type id="SodexoPremium" order="13">
-            <label>SodexoPremium</label>
-        </type>
-        <type id="SodexoRefeicao" order="14">
-            <label>SodexoRefeicao</label>
-        </type>
-        <type id="SodexoCombustivel" order="15">
-            <label>SodexoCombustivel</label>
+        <type id="Sodexo" order="14">
+            <label>Sodexo</label>
         </type>
         <type id="VR" order="16">
             <label>VR</label>
         </type>
         <type id="Alelo" order="17">
             <label>Alelo</label>
-        </type>
-        <type id="Banese" order="18">
-            <label>Banese</label>
-        </type>
-        <type id="Cabal" order="19">
-            <label>Cabal</label>
         </type>
 
         <!-- Billet -->
