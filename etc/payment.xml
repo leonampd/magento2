@@ -9,10 +9,10 @@
             <allow_multiple_address>1</allow_multiple_address>
         </method>
         <method name="mundipagg_billet_creditcard">
-            <allow_multiple_address>1</allow_multiple_address>
+            <allow_multiple_address>0</allow_multiple_address>
         </method>
         <method name="mundipagg_two_creditcard">
-            <allow_multiple_address>1</allow_multiple_address>
+            <allow_multiple_address>0</allow_multiple_address>
         </method>
         <method name='mundipagg_customer_address'>
             <allow_multiple_address>0</allow_multiple_address>
@@ -82,26 +82,8 @@
         </type>
 
         <!-- Billet -->
-        <type id="Itau" order="28">
-            <label>Itaú</label>
-        </type>
         <type id="Bradesco" order="29">
             <label>Bradesco</label>
-        </type>
-        <type id="Santander" order="30">
-            <label>Santander</label>
-        </type>
-        <type id="CitiBank" order="31">
-            <label>CitiBank</label>
-        </type>
-        <type id="BancoDoBrasil" order="32">
-            <label>Banco do Brasil</label>
-        </type>
-        <type id="Caixa" order="33">
-            <label>Caixa</label>
-        </type>
-        <type id="Stone" order="34">
-            <label>Stone</label>
         </type>
 
     </credit_cards>
