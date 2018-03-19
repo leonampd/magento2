@@ -11,6 +11,10 @@ use Behat\Testwork\Hook\Scope\BeforeSuiteScope;
  */
 class CreditCardContext extends RawMinkContext
 {
+    use CustomerConfigProvider;
+    use ModuleConfigProvider;
+    use InstallmentsConfigProvider;
+
     /**
      * Initializes context.
      *
@@ -28,15 +32,17 @@ class CreditCardContext extends RawMinkContext
     public static function setUp(BeforeSuiteScope $suiteScope)
     {
         $configs = [];
-        $magentoConfigs = [
-            'customer/address/street_lines' => 4, 
-            'customer/create_account/vat_frontend_visibility' => 1,
-            'customer/address/taxvat_show' => 'req'
-        ];
+        $magentoConfigs = self::getModuleConfigs();
+        $customerAddressConfig = self::getAddressConfigs();
+        $moduleKeys = self::getModuleKeys();
+        $moduleInstallmentsConfigs = self::getInstallmentsConfig();
 
-        $moduleConfigs = [];
-
-        $configs = array_merge($magentoConfigs, $moduleConfigs);
+        $configs = array_merge(
+            $magentoConfigs,
+            $customerAddressConfig,
+            $moduleKeys,
+            $moduleInstallmentsConfigs
+        );
 
         foreach($configs as $configKey => $configValue) {
             $command = sprintf(
