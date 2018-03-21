@@ -18,7 +18,7 @@ services:
       - HUB_PORT_4444_TCP_PORT=4444
 
   magento:
-    image: pagarme/magento2 
+    image: pagarme/magento2
     ports:
       - "80:80"
     depends_on:
