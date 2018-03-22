@@ -44,5 +44,13 @@
     },
     "config":{
         "secure-http":false
+    },
+    "archive":{
+        "exclude":[
+            "/docker",
+            "docker-compose.yml",
+            ".travis.yml",
+            ".env"
+        ]
     }
 }
