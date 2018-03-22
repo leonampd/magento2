@@ -14,18 +14,10 @@ class CreditCardContext extends RawMinkContext
     use CustomerConfigProvider;
     use ModuleConfigProvider;
     use InstallmentsConfigProvider;
+    use SessionWait;
 
-    /**
-     * Initializes context.
-     *
-     * Every scenario gets its own context instance.
-     * You can also pass arbitrary arguments to the
-     * context constructor through behat.yml.
-     */
-    public function __construct()
-    {
-    }
-
+    private $customer;
+    
     /**
      * @beforeSuite
      */
@@ -62,7 +54,7 @@ class CreditCardContext extends RawMinkContext
      */
     public function aRegisteredUser()
     {
-        throw new Exception();
+       $this->customer =  $this->getCustomer(); 
     }
 
     /**
@@ -70,7 +62,9 @@ class CreditCardContext extends RawMinkContext
      */
     public function iAccessTheStorePage()
     {
-        throw new Exception();
+        $this->getSession()->visit(
+            $this->locatePath('/')
+        );
     }
 
     /**
@@ -78,7 +72,9 @@ class CreditCardContext extends RawMinkContext
      */
     public function addAnyProductToBasket()
     {
-        throw new Exception();
+        $this->getSession()
+            ->getPage()
+            ->pressButton("Add to Cart");
     }
 
     /**
@@ -86,7 +82,28 @@ class CreditCardContext extends RawMinkContext
      */
     public function iGoToCheckoutPage()
     {
-        throw new Exception();
+        $this->getSession()->visit(
+            $this->locatePath('/checkout')
+        );
+
+        $page = $this->getSession()->getPage();
+        
+        $this->spin(
+            function($context) use($page) {
+                return ($page->find('css', '.items-in-cart')->isVisible());
+            }
+        );
+        
+        $page->find('css', '.items-in-cart')->click();
+
+        $this->spin(
+            function($context) use($page) {
+                return ($page->find(
+                    'css',
+                    '.product-item-name'
+                )->isVisible());
+            }
+        );
     }
 
     /**
@@ -135,5 +152,14 @@ class CreditCardContext extends RawMinkContext
     public function thePurchaseMustBePaidWithSuccess()
     {
         throw new Exception();
+    }
+
+    public function getCustomer()
+    {
+        $customer = new stdClass;
+        $customer->username = 'alan@turing.com';
+        $customer->password = '##Abc123456##';
+
+        return $customer;
     }
 }
