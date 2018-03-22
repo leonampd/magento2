@@ -16,4 +16,4 @@ before_install:
 script:
   - docker-compose up -d && docker-compose exec magento install_pagarme && docker-compose exec magento update && docker-compose exec magento composer require magento/module-catalog-sample-data --dev
   - docker-compose exec db sh -c 'mysql -uroot -D magento < /app/magento.sql'
-  - docker-compose exec magento behat --config ${PATH_MODULE}/behat.yml
+  - docker-compose exec magento behat --config ${PATH_MODULE}/behat.yml --stop-on-failure
