@@ -85,14 +85,18 @@ class CreditCardContext extends RawMinkContext
         $this->getSession()->visit(
             $this->locatePath('/checkout')
         );
+        
+        $this->getSession()->wait(10000);
+        
         $page = $this->page;
+
         $this->spin(
             function($context) use($page) {
                 return ($page->find('css', '.action-auth-toggle')->isVisible());
             }
         );
         
-        $page->find('css', '.action-auth-toggle')->click();
+        $this->page->pressButton('Sign In');
     }
 
     /**
@@ -158,9 +162,9 @@ class CreditCardContext extends RawMinkContext
     }
 
     /**
-     * @When I confirm my payment information
+     * @When I confirm my payment information with installment :installment
      */
-    public function iConfirmMyPaymentInformation()
+    public function iConfirmMyPaymentInformationWithInstallment($installment)
     {
         $this->page->find(
             'css',
@@ -187,6 +191,10 @@ class CreditCardContext extends RawMinkContext
             '#mundipagg_creditcard_cc_cid'
         )->setValue('123');
 
+        $this->page->find(
+            'css',
+            '#mundipagg_creditcard_installments'
+        )->selectOption($installment);
     }
 
     /**
