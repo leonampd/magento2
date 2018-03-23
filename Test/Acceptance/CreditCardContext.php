@@ -90,20 +90,11 @@ class CreditCardContext extends RawMinkContext
         
         $this->spin(
             function($context) use($page) {
-                return ($page->find('css', '.items-in-cart')->isVisible());
+                return ($page->find('css', '.action-auth-toggle')->isVisible());
             }
         );
         
-        $page->find('css', '.items-in-cart')->click();
-
-        $this->spin(
-            function($context) use($page) {
-                return ($page->find(
-                    'css',
-                    '.product-item-name'
-                )->isVisible());
-            }
-        );
+        $page->find('css', '.action-auth-toggle')->click();
     }
 
     /**
@@ -111,8 +102,30 @@ class CreditCardContext extends RawMinkContext
      */
     public function loginWithRegisteredUser()
     {
-        throw new Exception();
+        $page = $this->getSession()->getPage();
+        $page->fillField(
+            'username',
+            'alan@turing.com'
+        );
+
+        $page->fillField(
+            'password',
+            '##Abc123456##'
+        );
+
+        $page->find('css', '.action-login.secondary')->click();
+
+        $this->spin(
+            function($context) use($page) {
+                $loadingMask = $page->find('css', '.loading-mask')->isVisible();
+                return ($loadingMask == false) ? true : false;
+            }
+
+        );
+        //$this->getSession()->wait(10000);
+        $page->pressButton("Next");
     }
+
 
     /**
      * @When confirm billing and shipping address information
