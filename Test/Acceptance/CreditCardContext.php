@@ -17,7 +17,8 @@ class CreditCardContext extends RawMinkContext
     use SessionWait;
 
     private $customer;
-    
+    private $page;
+
     /**
      * @beforeSuite
      */
@@ -72,9 +73,8 @@ class CreditCardContext extends RawMinkContext
      */
     public function addAnyProductToBasket()
     {
-        $this->getSession()
-            ->getPage()
-            ->pressButton("Add to Cart");
+        $this->page = $this->getSession()->getPage();
+        $this->page->pressButton("Add to Cart");
     }
 
     /**
@@ -85,9 +85,7 @@ class CreditCardContext extends RawMinkContext
         $this->getSession()->visit(
             $this->locatePath('/checkout')
         );
-
-        $page = $this->getSession()->getPage();
-        
+        $page = $this->page;
         $this->spin(
             function($context) use($page) {
                 return ($page->find('css', '.action-auth-toggle')->isVisible());
@@ -102,37 +100,40 @@ class CreditCardContext extends RawMinkContext
      */
     public function loginWithRegisteredUser()
     {
-        $page = $this->getSession()->getPage();
-        $page->fillField(
+        $page = $this->page;
+        
+        $this->spin(
+            function($context) use($page) {
+                return ($page->find('css', '.authentication-dropdown')->isVisible());
+            }
+        );
+        
+        $this->page->fillField(
             'username',
-            'alan@turing.com'
+            $this->customer->username
         );
 
-        $page->fillField(
+        $this->page->fillField(
             'password',
-            '##Abc123456##'
+            $this->customer->password
         );
 
-        $page->find('css', '.action-login.secondary')->click();
+        $this->page->find('css', '.action-login.secondary')->click();
 
         $this->spin(
             function($context) use($page) {
-                $loadingMask = $page->find('css', '.loading-mask')->isVisible();
-                return ($loadingMask == false) ? true : false;
+                return ($page->find('css', '.shipping-address-item'));
             }
-
         );
-        //$this->getSession()->wait(10000);
-        $page->pressButton("Next");
-    }
 
+        $shippingAddres = $page->find('css', '.shipping-address-item')->getText();
 
-    /**
-     * @When confirm billing and shipping address information
-     */
-    public function confirmBillingAndShippingAddressInformation()
-    {
-        throw new Exception();
+        if(strpos($shippingAddres, $this->customer->name) === false){
+            throw new Exception();
+        }
+
+        $this->getSession()->wait(2000);
+        $this->page->pressButton('Next');
     }
 
     /**
@@ -140,7 +141,20 @@ class CreditCardContext extends RawMinkContext
      */
     public function choosePayWithTransparentCheckoutUsingCreditCard()
     {
-        throw new Exception();
+        $page = $this->page;
+
+        $this->spin(
+            function($context) use($page) {
+                return ($page->find('css', '#mundipagg_creditcard'));
+            }
+        );
+
+        $this->getSession()->wait(2000);
+
+        $this->page->find(
+            'css',
+            '#mundipagg_creditcard'
+        )->selectOption('mundipagg_creditcard');
     }
 
     /**
@@ -148,7 +162,31 @@ class CreditCardContext extends RawMinkContext
      */
     public function iConfirmMyPaymentInformation()
     {
-        throw new Exception();
+        $this->page->find(
+            'css',
+            '#mundipagg_creditcard_cc_number'
+        )->setValue('4242424242424242');
+
+        $this->page->find(
+            'css',
+            '#mundipagg_creditcard_cc_owner'
+        )->setValue('Alan Turing');
+        
+        $this->page->find(
+            'css',
+            '#mundipagg_creditcard_expiration'
+        )->selectOption('12');
+        
+        $this->page->find(
+            'css',
+            '#mundipagg_creditcard_expiration_yr'
+        )->selectOption('2028');
+
+        $this->page->find(
+            'css',
+            '#mundipagg_creditcard_cc_cid'
+        )->setValue('123');
+
     }
 
     /**
@@ -156,7 +194,19 @@ class CreditCardContext extends RawMinkContext
      */
     public function placeOrder()
     {
-        throw new Exception();
+        $page = $this->page;
+        $this->spin(
+            function($context) use($page) {
+                return ($page->find(
+                    'css',
+                    '.payment-method._active button.primary.checkout'
+                ));
+            }
+        );
+        $this->page->find(
+            'css',
+            '.payment-method._active button.primary.checkout'
+        )->click();
     }
 
     /**
@@ -164,12 +214,22 @@ class CreditCardContext extends RawMinkContext
      */
     public function thePurchaseMustBePaidWithSuccess()
     {
-        throw new Exception();
+        $page = $this->page;
+        $this->spin(
+            function($context) use ($page) {
+                $pageTitle = $this->page->find('css', '.page-title-wrapper')->getText();
+                if(strpos($pageTitle, 'Thank you for your purchase!') === false) {
+                    return false;
+                }
+                return true;
+            }
+        );
     }
 
     public function getCustomer()
     {
         $customer = new stdClass;
+        $customer->name = 'Alan Turing';
         $customer->username = 'alan@turing.com';
         $customer->password = '##Abc123456##';
 
