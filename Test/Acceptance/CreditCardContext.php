@@ -86,17 +86,23 @@ class CreditCardContext extends RawMinkContext
             $this->locatePath('/checkout')
         );
         
-        $this->getSession()->wait(10000);
-        
         $page = $this->page;
 
-        $this->spin(
-            function($context) use($page) {
-                return ($page->find('css', '.action-auth-toggle')->isVisible());
-            }
-        );
-        
-        $this->page->pressButton('Sign In');
+        try {
+            $this->page->pressButton('Sign In');
+        } catch(\Exception $exception) {
+            $this->spin(
+                function($context) use ($page) {
+                    $loader = $page->find('css', '.checkout-loader');
+                    if(is_null($loader)) {
+                        return true;
+                    }
+
+                    return false;
+                }
+            , 120);
+            $this->page->pressButton('Sign In');
+        } 
     }
 
     /**
@@ -108,7 +114,11 @@ class CreditCardContext extends RawMinkContext
         
         $this->spin(
             function($context) use($page) {
-                return ($page->find('css', '.authentication-dropdown')->isVisible());
+                return (
+                    $page->find('css', '.authentication-dropdown')->isVisible() &&
+                    $page->find('css', '#login-email')->isVisible() &&
+                    $page->find('css', '#login-password')
+                );
             }
         );
         
