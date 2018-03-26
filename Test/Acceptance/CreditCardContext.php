@@ -174,7 +174,7 @@ class CreditCardContext extends RawMinkContext
         $this->page->find(
             'css',
             '#mundipagg_creditcard_cc_owner'
-        )->setValue('Alan Turing');
+        )->setValue($this->customer->name);
         
         $this->page->find(
             'css',
