@@ -60,6 +60,7 @@ abstract class PaymentContext extends RawMinkContext
         $page = $this->page;
 
         try {
+            $this->getSession()->wait(3000);
             $this->page->pressButton('Sign In');
         } catch(\Exception $exception) {
             $this->spin(
