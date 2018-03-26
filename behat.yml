@@ -29,3 +29,9 @@ default:
         - "%paths.base%/Test/Acceptance/Features/creditcard.feature"
       contexts:
         - CreditCardContext
+
+    billet:
+      paths:
+        - "%paths.base%/Test/Acceptance/Features/billet.feature"
+      contexts:
+        - BilletContext
