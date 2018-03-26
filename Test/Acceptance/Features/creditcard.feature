@@ -9,7 +9,7 @@ Feature: Credit card
         And add any product to basket
         And I go to checkout page
         And login with registered user
-        And choose pay with transparent checkout using credit card
+        And choose pay with transparent checkout creditcard
         And I confirm my payment information with installment 1
         And place order
         Then the purchase must be paid with success
@@ -20,7 +20,7 @@ Feature: Credit card
         And add any product to basket
         And I go to checkout page
         And login with registered user
-        And choose pay with transparent checkout using credit card
+        And choose pay with transparent checkout creditcard
         And I confirm my payment information with installment 10
         And place order
         Then the purchase must be paid with success
