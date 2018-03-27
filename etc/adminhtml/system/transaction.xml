@@ -11,7 +11,5 @@
         <frontend_model>MundiPagg\MundiPagg\Block\Adminhtml\System\Config\Fieldset\Payment</frontend_model>
         <include path="MundiPagg_MundiPagg::system/transaction/creditcard.xml"/>
         <include path="MundiPagg_MundiPagg::system/transaction/billet.xml"/>
-        <include path="MundiPagg_MundiPagg::system/transaction/multipleactionstwocreditcard.xml"/>
-        <include path="MundiPagg_MundiPagg::system/transaction/multipleactionscreditcardbillet.xml"/>
     </group>
 </include>
