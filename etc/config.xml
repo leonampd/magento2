@@ -22,7 +22,7 @@
                 <model>MundiPaggBilletRemoteMethodAdapter</model>
                 <order_status>pending_payment</order_status>
                 <payment_action>authorize</payment_action>
-                <title>MundiPagg Billet</title>
+                <title>Billet</title>
                 <can_authorize>1</can_authorize>
                 <can_capture>1</can_capture>
                 <can_use_checkout>1</can_use_checkout>
@@ -37,7 +37,7 @@
                 <model>MundiPaggCreditCardsRemoteMethodAdapter</model>
                 <order_status>pending_payment</order_status>
                 <payment_action>authorize_capture</payment_action>
-                <title>MundiPagg Credit Card</title>
+                <title>Credit Card</title>
                 <can_authorize>1</can_authorize>
                 <can_capture_partial>1</can_capture_partial>
                 <can_capture>1</can_capture>
