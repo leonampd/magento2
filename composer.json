@@ -3,7 +3,7 @@
     "license": "Copyright",
     "version": "1.2.14",
     "type": "magento2-module",
-    "description": "Magento 2 Module Mundipagg",
+    "description": "Magento 2 Module Pagar.me",
     "require": {
         "php": "~5.6.0|~7.0.0|~7.1.0",
         "mundipagg/mundiapi": "^3.0"
@@ -26,8 +26,7 @@
     },
     "authors":[
         {
-            "name":"MundiPagg Embeddables Team",
-            "email":"embeddables@mundipagg.com"
+            "name":"Plataformas"
         }
     ],
     "minimum-stability": "dev",
@@ -39,7 +38,8 @@
             "registration.php"
         ],
         "psr-4": {
-            "MundiPagg\\MundiPagg\\": ""
+            "MundiPagg\\MundiPagg\\": "",
+            "PagarMe\\Magento2\\": ""
         }
     },
     "config":{
