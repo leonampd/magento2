@@ -56,25 +56,20 @@ abstract class PaymentContext extends RawMinkContext
         $this->getSession()->visit(
             $this->locatePath('/checkout')
         );
-        
+
         $page = $this->page;
 
         try {
-            $this->getSession()->wait(3000);
             $this->page->pressButton('Sign In');
         } catch(\Exception $exception) {
             $this->spin(
                 function($context) use ($page) {
-                    $loader = $page->find('css', '.checkout-loader');
-                    if(is_null($loader)) {
-                        return true;
-                    }
-
-                    return false;
+                    $this->page->pressButton('Sign In');
+                    return true;
                 }
             , 120);
             $this->page->pressButton('Sign In');
-        } 
+        }
     }
 
     /**
@@ -83,7 +78,7 @@ abstract class PaymentContext extends RawMinkContext
     public function loginWithRegisteredUser()
     {
         $page = $this->page;
-        
+
         $this->spin(
             function($context) use($page) {
                 return (
@@ -135,12 +130,22 @@ abstract class PaymentContext extends RawMinkContext
             }
         );
 
-        $this->getSession()->wait(2000);
-
-        $this->page->find(
-            'css',
-            '#mundipagg_'.$paymentMethod
-        )->selectOption('mundipagg_'.$paymentMethod);
+        try {
+            $this->page->find(
+                'css',
+                '#mundipagg_'.$paymentMethod
+            )->selectOption('mundipagg_'.$paymentMethod);
+        } catch(\Exception $exception) {
+            $this->spin(
+                function($context) use ($page) {
+                    $page->find(
+                        'css',
+                        '#mundipagg_'.$paymentMethod
+                    )->selectOption('mundipagg_'.$paymentMethod);
+                    return true;
+                }
+            , 120);
+        }
     }
 
     /**
