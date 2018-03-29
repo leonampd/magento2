@@ -1,6 +1,20 @@
-<?php 
+<?php
 
 trait SessionWait {
+
+    public function waitPageLoad($timeout = 500)
+    {
+        $state = $this->session->wait(
+            $timeout,
+            "document.querySelector('.loading-mask').style.display != 'block'"
+        );
+
+        if(!$state) {
+            throw new \Exception('Deu timeout');
+        }
+
+        return true;
+    }
 
     public function spin ($closure, $wait = 60)
     {
@@ -23,6 +37,6 @@ trait SessionWait {
             "Timeout thrown by " . $backtrace[1]['class'] . "::" . $backtrace[1]['function'] . "()\n" .
             $backtrace[1]['file'] . ", line " . $backtrace[1]['line']
         );
-    } 
+    }
 
 }
