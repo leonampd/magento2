@@ -15,6 +15,7 @@ abstract class PaymentContext extends RawMinkContext
 
     protected $customer;
     protected $page;
+    protected $session;
 
     /**
      * @beforeSuite
@@ -26,7 +27,7 @@ abstract class PaymentContext extends RawMinkContext
      */
     public function aRegisteredUser()
     {
-       $this->customer =  $this->getCustomer(); 
+       $this->customer =  $this->getCustomer();
     }
 
     /**
@@ -44,7 +45,8 @@ abstract class PaymentContext extends RawMinkContext
      */
     public function addAnyProductToBasket()
     {
-        $this->page = $this->getSession()->getPage();
+        $this->session = $this->getSession();
+        $this->page = $this->session->getPage();
         $this->page->pressButton("Add to Cart");
     }
 
@@ -56,11 +58,10 @@ abstract class PaymentContext extends RawMinkContext
         $this->getSession()->visit(
             $this->locatePath('/checkout')
         );
-        
+
         $page = $this->page;
 
         try {
-            $this->getSession()->wait(3000);
             $this->page->pressButton('Sign In');
         } catch(\Exception $exception) {
             $this->spin(
@@ -74,7 +75,7 @@ abstract class PaymentContext extends RawMinkContext
                 }
             , 120);
             $this->page->pressButton('Sign In');
-        } 
+        }
     }
 
     /**
@@ -83,7 +84,6 @@ abstract class PaymentContext extends RawMinkContext
     public function loginWithRegisteredUser()
     {
         $page = $this->page;
-        
         $this->spin(
             function($context) use($page) {
                 return (
@@ -93,7 +93,6 @@ abstract class PaymentContext extends RawMinkContext
                 );
             }
         );
-        
         $this->page->fillField(
             'username',
             $this->customer->username
@@ -118,7 +117,11 @@ abstract class PaymentContext extends RawMinkContext
             throw new Exception();
         }
 
-        $this->getSession()->wait(2000);
+        $this->spin(
+            function($context) use($page) {
+                return ($page->find('css', 'button.action.continue.primary'));
+            }
+        );
         $this->page->pressButton('Next');
     }
 
@@ -128,19 +131,33 @@ abstract class PaymentContext extends RawMinkContext
     public function choosePayWithTransparentCheckout($paymentMethod)
     {
         $page = $this->page;
-
+        $teste = $this;
         $this->spin(
-            function($context) use($page, $paymentMethod) {
-                return ($page->find('css', '#mundipagg_'.$paymentMethod));
+            function($context) use($page, $paymentMethod, $teste) {
+                return (
+                    $page->find('css', '#mundipagg_'.$paymentMethod)
+                    && $teste->waitPageLoad()
+                );
             }
         );
 
-        $this->getSession()->wait(2000);
+        $this->waitPageLoad(2000);
 
-        $this->page->find(
-            'css',
-            '#mundipagg_'.$paymentMethod
-        )->selectOption('mundipagg_'.$paymentMethod);
+        try {
+            $this->page->find(
+                'css',
+                '#mundipagg_'.$paymentMethod
+            )->selectOption('mundipagg_'.$paymentMethod);
+        } catch(Exception $exception) {
+            echo $exception->getMessage() . '. Tentando de novo...';
+
+            $this->waitPageLoad(2000);
+
+            $this->page->find(
+                'css',
+                '#mundipagg_'.$paymentMethod
+            )->selectOption('mundipagg_'.$paymentMethod);
+        }
     }
 
     /**
