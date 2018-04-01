@@ -56,8 +56,8 @@
             <comment />
             <config_path>payment/mundipagg_creditcard/sort_order</config_path>
         </field>
-	    <include path="MundiPagg_MundiPagg::system/transaction/creditcard/types.xml"/>
-	    <include path="MundiPagg_MundiPagg::system/transaction/creditcard/installments.xml"/>
-	    <include path="MundiPagg_MundiPagg::system/transaction/creditcard/antifraud.xml"/>
+	    <include path="PagarMe_Magento2::system/transaction/creditcard/types.xml"/>
+	    <include path="PagarMe_Magento2::system/transaction/creditcard/installments.xml"/>
+	    <include path="PagarMe_Magento2::system/transaction/creditcard/antifraud.xml"/>
     </group>
 </include>

@@ -24,9 +24,9 @@
                     <![CDATA[Pagar.me&nbsp;&nbsp;<i>Payment Solutions.</i>]]>
                 </label>
                 <frontend_model>MundiPagg\MundiPagg\Block\Adminhtml\System\Config\Fieldset\Group</frontend_model>
-                <include path="MundiPagg_MundiPagg::system/global.xml"/>
-                <include path="MundiPagg_MundiPagg::system/customer.xml"/>
-                <include path="MundiPagg_MundiPagg::system/transaction.xml"/>
+                <include path="PagarMe_Magento2::system/global.xml"/>
+                <include path="PagarMe_Magento2::system/customer.xml"/>
+                <include path="PagarMe_Magento2::system/transaction.xml"/>
             </group>
         </section>
 	</system>
