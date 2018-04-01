@@ -9,6 +9,6 @@
     <group id="mundipagg_mundipagg_customer" translate="label comment" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="20">
         <label>Customer Config</label>
         <frontend_model>MundiPagg\MundiPagg\Block\Adminhtml\System\Config\Fieldset\Payment</frontend_model>
-        <include path="MundiPagg_MundiPagg::system/customer/address.xml"/>
+        <include path="PagarMe_Magento2::system/customer/address.xml"/>
     </group>
 </include>
