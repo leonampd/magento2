@@ -9,7 +9,7 @@ define(
         'underscore',
         'Magento_Checkout/js/view/payment/default',
         'Magento_Payment/js/model/credit-card-validation/credit-card-data',
-        'MundiPagg_MundiPagg/js/model/credit-card-validation/credit-card-number-validator',
+        'PagarMe_Magento2/js/model/credit-card-validation/credit-card-number-validator',
         'mage/translate'
     ],
     function (_, Component, creditCardData, cardNumberValidator, $t) {

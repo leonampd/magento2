@@ -32,7 +32,7 @@
                 <expiration_days>5</expiration_days>
             </mundipagg_billet>
 
-            <mundipagg_creditcard>
+            <pagarme_creditcard>
                 <active>1</active>
                 <model>MundiPaggCreditCardsRemoteMethodAdapter</model>
                 <order_status>pending_payment</order_status>
@@ -56,7 +56,7 @@
                 <installments_max_without_interest>6</installments_max_without_interest>
                 <can_initialize>1</can_initialize>
                 <allow_multiple_address>0</allow_multiple_address>
-            </mundipagg_creditcard>
+            </pagarme_creditcard>
             <mundipagg_billet_creditcard>
                 <active>1</active>
                 <model>MundiPaggBilletCreditCardsRemoteMethodAdapter</model>

@@ -73,29 +73,29 @@ class CreditCardContext extends PaymentContext
     {
         $this->page->find(
             'css',
-            '#mundipagg_creditcard_cc_number'
+            '#pagarme_creditcard_cc_number'
         )->setValue('4242424242424242');
         $this->page->find(
             'css',
-            '#mundipagg_creditcard_cc_owner'
+            '#pagarme_creditcard_cc_owner'
         )->setValue($this->customer->name);
 
         $this->page->find(
             'css',
-            '#mundipagg_creditcard_expiration'
+            '#pagarme_creditcard_expiration'
         )->selectOption('12');
 
         $this->page->find(
             'css',
-            '#mundipagg_creditcard_expiration_yr'
+            '#pagarme_creditcard_expiration_yr'
         )->selectOption('2028');
         $this->page->find(
             'css',
-            '#mundipagg_creditcard_cc_cid'
+            '#pagarme_creditcard_cc_cid'
         )->setValue('123');
         $this->page->find(
             'css',
-            '#mundipagg_creditcard_installments'
+            '#pagarme_creditcard_installments'
         )->selectOption($installment);
     }
 

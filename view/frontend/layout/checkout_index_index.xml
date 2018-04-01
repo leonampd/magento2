@@ -10,7 +10,7 @@
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="checkout" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <head>
-        <css src="MundiPagg_MundiPagg/css/mundipagg_style.css" />
+        <css src="PagarMe_Magento2/css/mundipagg_style.css" />
     </head>
     <body>
         <referenceBlock name="checkout.root">
@@ -30,9 +30,9 @@
                                                             <!-- merge payment method renders here -->
                                                             <item name="children" xsi:type="array">
                                                                 <item name="mundipagg_payment" xsi:type="array">
-                                                                    <item name="component" xsi:type="string">MundiPagg_MundiPagg/js/view/payment/payments</item>
+                                                                    <item name="component" xsi:type="string">PagarMe_Magento2/js/view/payment/payments</item>
                                                                     <item name="methods" xsi:type="array">
-                                                                        <item name="mundipagg_creditcard" xsi:type="array">
+                                                                        <item name="pagarme_creditcard" xsi:type="array">
                                                                             <!-- <item name="isBillingAddressRequired" xsi:type="boolean">true</item> -->
                                                                         </item>
                                                                         <item name="mundipagg_billet" xsi:type="array">

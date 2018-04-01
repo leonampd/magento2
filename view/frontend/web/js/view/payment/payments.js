@@ -1,9 +1,9 @@
 /**
- * @author      MundiPagg Embeddables Team <embeddables@mundipagg.com>
- * @copyright   2017 MundiPagg (http://www.mundipagg.com)
- * @license     http://www.mundipagg.com  Copyright
+ * @author      MundiPagg Embeddables Team <embeddables@magento2.com>
+ * @copyright   2017 MundiPagg (http://www.magento2.com)
+ * @license     http://www.magento2.com  Copyright
  *
- * @link        http://www.mundipagg.com
+ * @link        http://www.magento2.com
  */
 /*browser:true*/
 /*global define*/
@@ -20,20 +20,20 @@ define(
 
         rendererList.push(
             {
-                type: 'mundipagg_creditcard',
-                component: 'MundiPagg_MundiPagg/js/view/payment/method-renderer/creditcard'
+                type: 'pagarme_creditcard',
+                component: 'PagarMe_Magento2/js/view/payment/method-renderer/creditcard'
             },
             {
-                type: 'mundipagg_billet_creditcard',
-                component: 'MundiPagg_MundiPagg/js/view/payment/method-renderer/billet_creditcard'
+                type: 'pagarme_billet_creditcard',
+                component: 'PagarMe_Magento2/js/view/payment/method-renderer/billet_creditcard'
             },
             {
-                type: 'mundipagg_billet',
-                component: 'MundiPagg_MundiPagg/js/view/payment/method-renderer/billet'
+                type: 'pagarme_billet',
+                component: 'PagarMe_Magento2/js/view/payment/method-renderer/billet'
             },
             {
-                type: 'mundipagg_two_creditcard',
-                component: 'MundiPagg_MundiPagg/js/view/payment/method-renderer/two_creditcard'
+                type: 'pagarme_two_creditcard',
+                component: 'PagarMe_Magento2/js/view/payment/method-renderer/two_creditcard'
             }
         );
         return Component.extend({});

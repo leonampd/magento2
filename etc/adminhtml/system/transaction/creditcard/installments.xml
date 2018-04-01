@@ -12,13 +12,13 @@
 	        <label>Active</label>
 	        <comment />
 	        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-	        <config_path>payment/mundipagg_creditcard/installments_active</config_path>
+	        <config_path>payment/pagarme_creditcard/installments_active</config_path>
 	    </field>
 	    <field id="installments_type" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="11" translate="label" type="select">
 	        <label>Type installments Unique</label>
 	        <comment>Unique(Yes) or by Brand(No).</comment>
 	        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-	        <config_path>payment/mundipagg_creditcard/installments_type</config_path>
+	        <config_path>payment/pagarme_creditcard/installments_type</config_path>
 	        <depends>
                 <field id="installments_active">1</field>
             </depends>

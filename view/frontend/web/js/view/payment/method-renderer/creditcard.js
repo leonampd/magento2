@@ -9,10 +9,10 @@
 /*global define*/
 define(
     [
-        'MundiPagg_MundiPagg/js/view/payment/cc-form',
+        'PagarMe_Magento2/js/view/payment/cc-form',
         'ko',
-        'MundiPagg_MundiPagg/js/action/installments',
-        'MundiPagg_MundiPagg/js/action/installmentsByBrand',
+        'PagarMe_Magento2/js/action/installments',
+        'PagarMe_Magento2/js/action/installmentsByBrand',
         'jquery',
         'Magento_Checkout/js/model/quote',
         'Magento_Catalog/js/price-utils',
@@ -38,7 +38,7 @@ define(
 
         return Component.extend({
             defaults: {
-                template: 'MundiPagg_MundiPagg/payment/creditcard',
+                template: 'PagarMe_Magento2/payment/creditcard',
                 creditCardType: '',
                 creditCardInstallments: '',
                 creditCardOwner: '',
@@ -50,7 +50,7 @@ define(
                 creditCardSsStartYear: '',
                 creditCardSsIssue: '',
                 creditCardVerificationNumber: '',
-                creditSavedCard: window.checkoutConfig.payment.mundipagg_creditcard.selected_card,
+                creditSavedCard: window.checkoutConfig.payment.pagarme_creditcard.selected_card,
                 selectedCardType: null,
                 allInstallments: ko.observableArray([])
             },
@@ -100,11 +100,11 @@ define(
 
                 this.creditSavedCard.subscribe(function(value){
                     if (typeof value != 'undefined') {
-                        var cards = window.checkoutConfig.payment.mundipagg_creditcard.cards;
+                        var cards = window.checkoutConfig.payment.pagarme_creditcard.cards;
                         for (var i = 0, len = cards.length; i < len; i++) {
                             if(cards[i].id == value){
-                                self.creditCardSavedNumber(window.checkoutConfig.payment.mundipagg_creditcard.cards[i].last_four_numbers);
-                                self.creditCardType(window.checkoutConfig.payment.mundipagg_creditcard.cards[i].brand);
+                                self.creditCardSavedNumber(window.checkoutConfig.payment.pagarme_creditcard.cards[i].last_four_numbers);
+                                self.creditCardType(window.checkoutConfig.payment.pagarme_creditcard.cards[i].brand);
                             }
                         }
                     }
@@ -140,7 +140,7 @@ define(
 
                 selectPaymentMethodAction(this.getData());
                 checkoutData.setSelectedPaymentMethod(this.item.method);
-                $("#mundipagg_creditcard_installments").val('');
+                $("#pagarme_creditcard_installments").val('');
 
                 return true;
             },
@@ -174,16 +174,15 @@ define(
                         'selectedCardType',
                         'creditCardInstallments',
                     ]);
-
                 return this;
             },
 
             getCode: function () {
-                return 'mundipagg_creditcard';
+                return 'pagarme_creditcard';
             },
 
             isActive: function () {
-                return window.checkoutConfig.payment.mundipagg_creditcard.active;
+                return window.checkoutConfig.payment.pagarme_creditcard.active;
             },
 
             isInstallmentsActive: function () {
@@ -251,7 +250,7 @@ define(
             },
 
             onInstallmentItemChange: function () {
-                this.updateTotalWithTax(jQuery('#mundipagg_creditcard_installments option:selected').attr('interest'));
+                this.updateTotalWithTax(jQuery('#pagarme_creditcard_installments option:selected').attr('interest'));
             },
 
             updateTotalWithTax: function (newTax) {
@@ -280,20 +279,20 @@ define(
             },
 
             onSavedCardChange: function () {
-                if (jQuery('#mundipagg_creditcard_card').val()) {
-                    jQuery('#mundipagg_creditcard_cc_icons').css('display', 'none');
-                    jQuery('#mundipagg_creditcard_cc_savecard').css('display', 'none');
-                    jQuery('#mundipagg_creditcard_cc_number_div').css('display', 'none');
-                    jQuery('#mundipagg_creditcard_cc_owner_div').css('display', 'none');
-                    jQuery('#mundipagg_creditcard_cc_type_exp_div').css('display', 'none');
-                    jQuery('#mundipagg_creditcard_cc_type_cvv_div').css('display', 'none');
+                if (jQuery('#pagarme_creditcard_card').val()) {
+                    jQuery('#pagarme_creditcard_cc_icons').css('display', 'none');
+                    jQuery('#pagarme_creditcard_cc_savecard').css('display', 'none');
+                    jQuery('#pagarme_creditcard_cc_number_div').css('display', 'none');
+                    jQuery('#pagarme_creditcard_cc_owner_div').css('display', 'none');
+                    jQuery('#pagarme_creditcard_cc_type_exp_div').css('display', 'none');
+                    jQuery('#pagarme_creditcard_cc_type_cvv_div').css('display', 'none');
                 } else {
-                    jQuery('#mundipagg_creditcard_cc_icons').css('display', 'block');
-                    jQuery('#mundipagg_creditcard_cc_savecard').css('display', 'block');
-                    jQuery('#mundipagg_creditcard_cc_number_div').css('display', 'block');
-                    jQuery('#mundipagg_creditcard_cc_owner_div').css('display', 'block');
-                    jQuery('#mundipagg_creditcard_cc_type_exp_div').css('display', 'block');
-                    jQuery('#mundipagg_creditcard_cc_type_cvv_div').css('display', 'block');
+                    jQuery('#pagarme_creditcard_cc_icons').css('display', 'block');
+                    jQuery('#pagarme_creditcard_cc_savecard').css('display', 'block');
+                    jQuery('#pagarme_creditcard_cc_number_div').css('display', 'block');
+                    jQuery('#pagarme_creditcard_cc_owner_div').css('display', 'block');
+                    jQuery('#pagarme_creditcard_cc_type_exp_div').css('display', 'block');
+                    jQuery('#pagarme_creditcard_cc_type_cvv_div').css('display', 'block');
                 }
             },
         })

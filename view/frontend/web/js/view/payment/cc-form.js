@@ -9,7 +9,7 @@ define(
         'underscore',
         'Magento_Checkout/js/view/payment/default',
         'Magento_Payment/js/model/credit-card-validation/credit-card-data',
-        'MundiPagg_MundiPagg/js/model/credit-card-validation/credit-card-number-validator',
+        'PagarMe_Magento2/js/model/credit-card-validation/credit-card-number-validator',
         'mage/translate'
     ],
     function (_, Component, creditCardData, cardNumberValidator, $t) {
@@ -25,7 +25,7 @@ define(
                 creditCardSsStartMonth: '',
                 creditCardSsStartYear: '',
                 creditCardSsIssue: '',
-                creditSavedCard: window.checkoutConfig.payment.mundipagg_creditcard.selected_card,
+                creditSavedCard: window.checkoutConfig.payment.pagarme_creditcard.selected_card,
                 creditCardVerificationNumber: '',
                 selectedCardType: null
             },
@@ -138,11 +138,11 @@ define(
             },
 
             isSaveCardHave: function() {
-                return window.checkoutConfig.payment.mundipagg_creditcard.is_saved_card;
+                return window.checkoutConfig.payment.pagarme_creditcard.is_saved_card;
             },
 
             isSaveCardStyle: function() {
-                if (window.checkoutConfig.payment.mundipagg_creditcard.selected_card) {
+                if (window.checkoutConfig.payment.pagarme_creditcard.selected_card) {
                     return 'display: none;';
                 }
 
@@ -150,7 +150,7 @@ define(
             },
 
             getCardsCustomer:function () {
-                return _.map(window.checkoutConfig.payment.mundipagg_creditcard.cards, function (value, key) {
+                return _.map(window.checkoutConfig.payment.pagarme_creditcard.cards, function (value, key) {
                     return {
                         'value': value.id,
                         'text': 'xxxx.xxxx.xxxx.' + value.last_four_numbers
@@ -163,7 +163,7 @@ define(
              * @returns {Object}
              */
             getCcAvailableTypes: function () {
-                return window.checkoutConfig.payment.ccform.availableTypes['mundipagg_creditcard'];
+                return window.checkoutConfig.payment.ccform.availableTypes['pagarme_creditcard'];
             },
 
             /**
