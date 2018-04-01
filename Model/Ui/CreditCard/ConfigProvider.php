@@ -19,7 +19,7 @@ use MundiPagg\MundiPagg\Gateway\Transaction\CreditCard\Config\ConfigInterface;
 
 final class ConfigProvider implements ConfigProviderInterface
 {
-    const CODE = 'mundipagg_creditcard';
+    const CODE = 'pagarme_creditcard';
 
     protected $creditCardConfig;
 

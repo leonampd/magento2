@@ -16,5 +16,5 @@ use MundiPagg\MundiPagg\Model\Ui\Base\GenericInstallmentsConfigProvider;
 
 class InstallmentsConfigProvider extends GenericInstallmentsConfigProvider
 {
-    const CODE = 'mundipagg_creditcard';
+    const CODE = 'pagarme_creditcard';
 }
