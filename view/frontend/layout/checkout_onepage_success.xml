@@ -12,8 +12,8 @@
     <body>
         <referenceContainer name="content">
             <block  class="MundiPagg\MundiPagg\Block\Payment\Billet"
-                    name="checkout.mundipagg.billet.link"
-                    template="payment/billet.phtml"
+                    name="checkout.pagarme.billet.link"
+                    template="PagarMe_Magento2::payment/billet.phtml"
                     before="order.success.additional.info"
                     cacheable="false" />
         </referenceContainer>

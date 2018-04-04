@@ -17,7 +17,7 @@ use Magento\Framework\DataObject;
 
 class Billet extends Info
 {
-    const TEMPLATE = 'MundiPagg_MundiPagg::info/billet.phtml';
+    const TEMPLATE = 'PagarMe_Magento2::info/billet.phtml';
 
     public function _construct()
     {
