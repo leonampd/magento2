@@ -41,20 +41,19 @@ class CreditCardOrderPlaceBeforeObserver implements ObserverInterface
     {
         $order = $observer->getOrder();
         $payment = $order->getPayment();
-
-        if ('mundipagg_creditcard' != $payment->getMethod() && 'mundipagg_billet_creditcard' != $payment->getMethod() && 'mundipagg_two_creditcard' != $payment->getMethod()) {
+        if ('pagarme_creditcard' != $payment->getMethod() && 'pagarme_billet_creditcard' != $payment->getMethod() && 'mundipagg_two_creditcard' != $payment->getMethod()) {
             return $this;
         }
 
-        if($payment->getMethod() == 'mundipagg_creditcard'){
+        if($payment->getMethod() == 'pagarme_creditcard'){
             $tax = $this->getTaxOrder($payment->getAdditionalInformation('cc_installments'), $payment->getCcType());
         }
 
-        if($payment->getMethod() == 'mundipagg_billet_creditcard'){
+        if($payment->getMethod() == 'pagarme_billet_creditcard'){
             $tax = $this->getTaxOrderByAmount($payment->getAdditionalInformation('cc_installments'), $payment->getCcType(), $payment->getAdditionalInformation('cc_cc_amount'));
         }
 
-        if($payment->getMethod() == 'mundipagg_two_creditcard'){
+        if($payment->getMethod() == 'pagarme_two_creditcard'){
 //            $firstTax = $this->getTaxOrderByAmount($payment->getAdditionalInformation('cc_installments_first'), $payment->getAdditionalInformation('cc_type_first'), $payment->getAdditionalInformation('cc_first_card_amount'));
 //            $secondTax = $this->getTaxOrderByAmount($payment->getAdditionalInformation('cc_installments_second'), $payment->getAdditionalInformation('cc_type_second'), $payment->getAdditionalInformation('cc_second_card_amount'));
             $tax = $payment->getAdditionalInformation('cc_second_card_tax_amount') + $payment->getAdditionalInformation('cc_first_card_tax_amount');
