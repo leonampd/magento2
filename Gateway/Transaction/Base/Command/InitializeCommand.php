@@ -55,8 +55,6 @@ class InitializeCommand implements CommandInterface
         }
 
         $stateObject->setData('is_notified', false);
-        var_dump($stateObject);
-        exit;
 
         return $this;
     }
