@@ -1,13 +1,3 @@
-<!--
-/**
- *
- * @author      MundiPagg Embeddables Team <embeddables@mundipagg.com>
- * @copyright   2017 MundiPagg (http://www.mundipagg.com)
- * @license     http://www.mundipagg.com Copyright
- *
- * @link        http://www.mundipagg.com
- */
--->
 
 <div class="payment-full">
     <div class="form-creditcard-one">
@@ -25,7 +15,7 @@
                     <span><!-- ko i18n: 'First Card Amount'--><!-- /ko --></span>
                 </label>
                 <div class="control">
-                    <input type="text" onKeyPress="if(this.value.length==window.checkoutConfig.payment.mundipagg_creditcard.size_credit_card) return false;" min="0" name="payment[first-card-amount]" class="input-text money" value=""
+                    <input type="text" onKeyPress="if(this.value.length==window.checkoutConfig.payment.pagarme_creditcard.size_credit_card) return false;" min="0" name="payment[first-card-amount]" class="input-text money" value=""
                            data-bind="event: { blur: bindInstallmentsByBlurFirst }, attr: {
                                     autocomplete: off,
                                     id: getCode() + '_first_card_amount',
@@ -117,7 +107,7 @@
                     <span><!-- ko i18n: 'Credit Card Number'--><!-- /ko --></span>
                 </label>
                 <div class="control">
-                    <input type="number" onKeyPress="if(this.value.length==window.checkoutConfig.payment.mundipagg_creditcard.size_credit_card) return false;" min="0"
+                    <input type="number" onKeyPress="if(this.value.length==window.checkoutConfig.payment.pagarme_creditcard.size_credit_card) return false;" min="0"
                            name="payment[cc_number_first]" class="input-text" value=""
                            data-bind="attr: {
                                         autocomplete: off,
@@ -270,7 +260,7 @@
                     <span><!-- ko i18n: 'Second Card Amount'--><!-- /ko --></span>
                 </label>
                 <div class="control">
-                    <input type="text" onKeyPress="if(this.value.length==window.checkoutConfig.payment.mundipagg_creditcard.size_credit_card) return false;" min="0" name="payment[second-card-amount]" class="input-text money" value=""
+                    <input type="text" onKeyPress="if(this.value.length==window.checkoutConfig.payment.pagarme_creditcard.size_credit_card) return false;" min="0" name="payment[second-card-amount]" class="input-text money" value=""
                                data-bind="event: { blur: bindInstallmentsByBlurSecond }, attr: {
                                     autocomplete: off,
                                     id: getCode() + '_second_card_amount',
@@ -364,7 +354,7 @@
                     <span><!-- ko i18n: 'Credit Card Number'--><!-- /ko --></span>
                 </label>
                 <div class="control">
-                    <input type="number" onKeyPress="if(this.value.length==window.checkoutConfig.payment.mundipagg_creditcard.size_credit_card) return false;" min="0"
+                    <input type="number" onKeyPress="if(this.value.length==window.checkoutConfig.payment.pagarme_creditcard.size_credit_card) return false;" min="0"
                            name="payment[cc_number_second]" class="input-text" value=""
                            data-bind="attr: {
                                     autocomplete: off,

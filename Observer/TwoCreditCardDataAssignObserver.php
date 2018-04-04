@@ -1,15 +1,9 @@
 <?php
 /**
  * Class CreditCardDataAssignObserver
- *
- * @author      MundiPagg Embeddables Team <embeddables@mundipagg.com>
- * @copyright   2017 MundiPagg (http://www.mundipagg.com)
- * @license     http://www.mundipagg.com Copyright
- *
- * @link        http://www.mundipagg.com
  */
 
-namespace MundiPagg\MundiPagg\Observer;
+namespace PagarMe\Magento2\Observer;
 
 
 use Magento\Framework\DataObject;

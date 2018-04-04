@@ -1,9 +1,9 @@
 <?php
 
 
-namespace MundiPagg\MundiPagg\Model;
+namespace PagarMe\Magento2\Model;
 
-use MundiPagg\MundiPagg\Api\Data\CardsInterface;
+use PagarMe\Magento2\Api\Data\CardsInterface;
 use Magento\Framework\Model\AbstractModel;
 
 class Cards extends AbstractModel implements CardsInterface
@@ -13,7 +13,7 @@ class Cards extends AbstractModel implements CardsInterface
      */
     protected function _construct()
     {
-        $this->_init('MundiPagg\MundiPagg\Model\ResourceModel\Cards');
+        $this->_init('PagarMe\Magento2\Model\ResourceModel\Cards');
     }
 
     /**
@@ -28,7 +28,7 @@ class Cards extends AbstractModel implements CardsInterface
     /**
      * Set id
      * @param int $id
-     * @return \MundiPagg\MundiPagg\Api\Data\CardsInterface
+     * @return \PagarMe\Magento2\Api\Data\CardsInterface
      */
     public function setId($id)
     {
@@ -47,7 +47,7 @@ class Cards extends AbstractModel implements CardsInterface
     /**
      * Set customer_id
      * @param string $customerId
-     * @return \MundiPagg\MundiPagg\Api\Data\CardsInterface
+     * @return \PagarMe\Magento2\Api\Data\CardsInterface
      */
     public function setCustomerId($customerId)
     {
@@ -66,7 +66,7 @@ class Cards extends AbstractModel implements CardsInterface
     /**
      * Set card_token
      * @param string $cardToken
-     * @return \MundiPagg\MundiPagg\Api\Data\CardsInterface
+     * @return \PagarMe\Magento2\Api\Data\CardsInterface
      */
     public function setCardToken($cardToken)
     {
@@ -85,7 +85,7 @@ class Cards extends AbstractModel implements CardsInterface
     /**
      * Set card_id
      * @param string $cardId
-     * @return \MundiPagg\MundiPagg\Api\Data\CardsInterface
+     * @return \PagarMe\Magento2\Api\Data\CardsInterface
      */
     public function setCardId($cardId)
     {
@@ -104,7 +104,7 @@ class Cards extends AbstractModel implements CardsInterface
     /**
      * Set last_four_numbers
      * @param string $lastFourNumbers
-     * @return \MundiPagg\MundiPagg\Api\Data\CardsInterface
+     * @return \PagarMe\Magento2\Api\Data\CardsInterface
      */
     public function setLastFourNumbers($lastFourNumbers)
     {
@@ -123,7 +123,7 @@ class Cards extends AbstractModel implements CardsInterface
     /**
      * Set created_at
      * @param string $createdAt
-     * @return \MundiPagg\MundiPagg\Api\Data\CardsInterface
+     * @return \PagarMe\Magento2\Api\Data\CardsInterface
      */
     public function setCreatedAt($createdAt)
     {
@@ -142,7 +142,7 @@ class Cards extends AbstractModel implements CardsInterface
     /**
      * Set updated_at
      * @param string $updatedAt
-     * @return \MundiPagg\MundiPagg\Api\Data\CardsInterface
+     * @return \PagarMe\Magento2\Api\Data\CardsInterface
      */
     public function setUpdatedAt($updatedAt)
     {
@@ -161,7 +161,7 @@ class Cards extends AbstractModel implements CardsInterface
     /**
      * Set brand
      * @param string $brand
-     * @return \MundiPagg\MundiPagg\Api\Data\CardsInterface
+     * @return \PagarMe\Magento2\Api\Data\CardsInterface
      */
     public function setBrand($brand)
     {

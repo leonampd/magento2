@@ -1,12 +1,3 @@
-<!--
-/**
- * @author      MundiPagg Embeddables Team <embeddables@mundipagg.com>
- * @copyright   2017 MundiPagg (http://www.mundipagg.com)
- * @license     http://www.mundipagg.com  Copyright
- *
- * @link        http://www.mundipagg.com
- */
--->
 
 <fieldset data-bind="attr: {class: 'fieldset payment items ccard ' + getCode(), id: 'payment_form_' + getCode()}">
     <legend class="legend">
@@ -40,7 +31,7 @@
             <span><!-- ko i18n: 'Credit Card Amount'--><!-- /ko --></span>
         </label>
         <div class="control">
-            <input type="text" onKeyPress="if(this.value.length==window.checkoutConfig.payment.mundipagg_creditcard.size_credit_card) return false;" min="0" name="payment[cc_cc_amount]" class="input-text money" value="" style="width: 335px;"
+            <input type="text" onKeyPress="if(this.value.length==window.checkoutConfig.payment.pagarme_creditcard.size_credit_card) return false;" min="0" name="payment[cc_cc_amount]" class="input-text money" value="" style="width: 335px;"
                    data-bind="event: { blur: bindInstallmentsByBlurBcc }, attr: {
                                     autocomplete: off,
                                     id: getCode() + '_cc_cc_amount',
@@ -127,7 +118,7 @@
             <span><!-- ko i18n: 'Credit Card Number'--><!-- /ko --></span>
         </label>
         <div class="control">
-            <input type="number" onKeyPress="if(this.value.length==window.checkoutConfig.payment.mundipagg_creditcard.size_credit_card) return false;" min="0" name="payment[cc_number]" class="input-text" value=""
+            <input type="number" onKeyPress="if(this.value.length==window.checkoutConfig.payment.pagarme_creditcard.size_credit_card) return false;" min="0" name="payment[cc_number]" class="input-text" value=""
                    data-bind="attr: {
                                     autocomplete: off,
                                     id: getCode() + '_cc_number',

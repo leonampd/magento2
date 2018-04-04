@@ -30,8 +30,8 @@ trait ModuleConfigProvider
         }
 
         $moduleKeys = [
-            'mundipagg_mundipagg/global/public_key' => $publicKey,
-            'mundipagg_mundipagg/global/secret_key' => $secretKey,
+            'pagarme_magento2/global/public_key' => $publicKey,
+            'pagarme_magento2/global/secret_key' => $secretKey,
         ];
 
         return $moduleKeys;

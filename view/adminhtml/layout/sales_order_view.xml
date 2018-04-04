@@ -3,7 +3,7 @@
     <body>
         <referenceBlock name="content">
             <action method="setTemplate">
-                <argument name="template" translate="true" xsi:type="string">MundiPagg_MundiPagg::order/view/info.phtml</argument>
+                <argument name="template" translate="true" xsi:type="string">PagarMe_Magento2::order/view/info.phtml</argument>
             </action>
         </referenceBlock>
     </body>

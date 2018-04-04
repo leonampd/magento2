@@ -1,21 +1,15 @@
 <?php
 /**
  * Class ConfigProvider
- *
- * @author      MundiPagg Embeddables Team <embeddables@mundipagg.com>
- * @copyright   2017 MundiPagg (http://www.mundipagg.com)
- * @license     http://www.mundipagg.com Copyright
- *
- * @link        http://www.mundipagg.com
  */
 
-namespace MundiPagg\MundiPagg\Model\Ui\CreditCard;
+namespace PagarMe\Magento2\Model\Ui\CreditCard;
 
 
 use Magento\Checkout\Model\ConfigProviderInterface;
 use Magento\Customer\Model\Session;
-use MundiPagg\MundiPagg\Model\CardsFactory;
-use MundiPagg\MundiPagg\Gateway\Transaction\CreditCard\Config\ConfigInterface;
+use PagarMe\Magento2\Model\CardsFactory;
+use PagarMe\Magento2\Gateway\Transaction\CreditCard\Config\ConfigInterface;
 
 final class ConfigProvider implements ConfigProviderInterface
 {

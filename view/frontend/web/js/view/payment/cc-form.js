@@ -112,6 +112,7 @@ define(
              * @returns {Object}
              */
             getData: function () {
+              console.log('xxx')
                 return {
                     'method': this.item.method,
                     'additional_data': {

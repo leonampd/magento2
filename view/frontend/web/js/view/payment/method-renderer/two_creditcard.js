@@ -1,20 +1,12 @@
-/**
- *
- * @author      MundiPagg Embeddables Team <embeddables@mundipagg.com>
- * @copyright   2017 MundiPagg (http://www.mundipagg.com)
- * @license     http://www.mundipagg.com Copyright
- *
- * @link        http://www.mundipagg.com
- */
 /*browser:true*/
 /*global define*/
 define(
     [
-        'MundiPagg_MundiPagg/js/view/payment/two-cc-form',
+        'PagarMe_Magento2/js/view/payment/two-cc-form',
         'ko',
-        'MundiPagg_MundiPagg/js/action/installments',
-        'MundiPagg_MundiPagg/js/action/installmentsByBrand',
-        'MundiPagg_MundiPagg/js/action/installmentsByBrandAndAmount',
+        'PagarMe_Magento2/js/action/installments',
+        'PagarMe_Magento2/js/action/installmentsByBrand',
+        'PagarMe_Magento2/js/action/installmentsByBrandAndAmount',
         'jquery',
         'Magento_Checkout/js/model/quote',
         'Magento_Catalog/js/price-utils',
@@ -41,7 +33,7 @@ define(
 
         return Component.extend({
             defaults: {
-                template: 'MundiPagg_MundiPagg/payment/two-creditcard',
+                template: 'PagarMe_Magento2/payment/two-creditcard',
                 firstCreditCardAmount: '',
                 firstCreditCardTaxAmount: '',
                 creditCardSavedNumberFirst: '',
@@ -56,7 +48,7 @@ define(
                 creditCardSsStartYearFirst: '',
                 creditCardSsIssueFirst: '',
                 creditCardVerificationNumbTerFirst: '',
-                creditSavedCardFirst: window.checkoutConfig.payment.mundipagg_two_creditcard.selected_card,
+                creditSavedCardFirst: window.checkoutConfig.payment.pagarme_two_creditcard.selected_card,
                 selectedCardTypeFirst: null,
                 allInstallmentsFirst: ko.observableArray([]),
                 secondCreditCardAmount: '',
@@ -73,7 +65,7 @@ define(
                 creditCardSsStartYearSecond: '',
                 creditCardSsIssueSecond: '',
                 creditCardVerificationNumberSecond: '',
-                creditSavedCardSecond: window.checkoutConfig.payment.mundipagg_two_creditcard.selected_card,
+                creditSavedCardSecond: window.checkoutConfig.payment.pagarme_two_creditcard.selected_card,
                 selectedCardTypeSecond: null,
                 allInstallmentsSecond: ko.observableArray([])
             },
@@ -157,11 +149,11 @@ define(
 
                 this.creditSavedCardFirst.subscribe(function(value){
                     if (typeof value != 'undefined') {
-                        var cards = window.checkoutConfig.payment.mundipagg_two_creditcard.cards;
+                        var cards = window.checkoutConfig.payment.pagarme_two_creditcard.cards;
                         for (var i = 0, len = cards.length; i < len; i++) {
                             if(cards[i].id == value){
-                                self.creditCardSavedNumberFirst(window.checkoutConfig.payment.mundipagg_two_creditcard.cards[i].last_four_numbers);
-                                self.selectedCardTypeFirst(window.checkoutConfig.payment.mundipagg_two_creditcard.cards[i].brand);
+                                self.creditCardSavedNumberFirst(window.checkoutConfig.payment.pagarme_two_creditcard.cards[i].last_four_numbers);
+                                self.selectedCardTypeFirst(window.checkoutConfig.payment.pagarme_two_creditcard.cards[i].brand);
                             }
                         }
                     }
@@ -169,11 +161,11 @@ define(
 
                 this.creditSavedCardSecond.subscribe(function(value){
                     if (typeof value != 'undefined') {
-                        var cards = window.checkoutConfig.payment.mundipagg_two_creditcard.cards;
+                        var cards = window.checkoutConfig.payment.pagarme_two_creditcard.cards;
                         for (var i = 0, len = cards.length; i < len; i++) {
                             if(cards[i].id == value){
-                                self.creditCardSavedNumberSecond(window.checkoutConfig.payment.mundipagg_two_creditcard.cards[i].last_four_numbers);
-                                self.selectedCardTypeSecond(window.checkoutConfig.payment.mundipagg_two_creditcard.cards[i].brand);
+                                self.creditCardSavedNumberSecond(window.checkoutConfig.payment.pagarme_two_creditcard.cards[i].last_four_numbers);
+                                self.selectedCardTypeSecond(window.checkoutConfig.payment.pagarme_two_creditcard.cards[i].brand);
                             }
                         }
                     }
@@ -203,8 +195,8 @@ define(
                     if (Math.abs(parseFloat(self.firstCreditCardAmount())) + Math.abs(parseFloat(self.secondCreditCardAmount())) > totalQuote) {
                         self.bindFirstCreditCardAmount(null);
                         self.bindSecondCreditCardAmount(null);
-                        jQuery('#mundipagg_two_creditcard_cc_installments_second').css('display','none');
-                        jQuery('#mundipagg_two_creditcard_cc_installments_first').css('display','none');
+                        jQuery('#pagarme_two_creditcard_cc_installments_second').css('display','none');
+                        jQuery('#pagarme_two_creditcard_cc_installments_first').css('display','none');
                     }
 
                 }
@@ -222,8 +214,8 @@ define(
                             value = value.replace(",", ".");
                             this.firstCreditCardAmount(value);
                             this.secondCreditCardAmount((totalQuote - parseFloat(value)).toFixed(2));
-                            jQuery('#mundipagg_two_creditcard_cc_installments_second').css('display','block');
-                            jQuery('#mundipagg_two_creditcard_cc_installments_first').css('display','block');
+                            jQuery('#pagarme_two_creditcard_cc_installments_second').css('display','block');
+                            jQuery('#pagarme_two_creditcard_cc_installments_first').css('display','block');
                             this.validateTotalQuote();
                         }
 
@@ -244,8 +236,8 @@ define(
                             value = value.replace(",", ".");
                             this.secondCreditCardAmount(value);
                             this.firstCreditCardAmount((totalQuote - parseFloat(value)).toFixed(2));
-                            jQuery('#mundipagg_two_creditcard_cc_installments_second').css('display','block');
-                            jQuery('#mundipagg_two_creditcard_cc_installments_first').css('display','block');
+                            jQuery('#pagarme_two_creditcard_cc_installments_second').css('display','block');
+                            jQuery('#pagarme_two_creditcard_cc_installments_first').css('display','block');
                             this.validateTotalQuote();
                         }
                     },
@@ -253,7 +245,7 @@ define(
                 });
 
                 this.bindInstallmentsByBlurFirst = function (){
-                    var cards = window.checkoutConfig.payment.mundipagg_two_creditcard.cards;
+                    var cards = window.checkoutConfig.payment.pagarme_two_creditcard.cards;
                     cards.find(function(value, index) {
                         if(value.id == self.creditSavedCardFirst()){
                             self.selectedCardTypeFirst(value.brand);
@@ -266,7 +258,7 @@ define(
                 };
 
                 this.bindInstallmentsByBlurSecond = function (){
-                    var cards = window.checkoutConfig.payment.mundipagg_two_creditcard.cards;
+                    var cards = window.checkoutConfig.payment.pagarme_two_creditcard.cards;
                     cards.find(function(value, index) {
                         if(value.id == self.creditSavedCardSecond()){
                             self.selectedCardTypeSecond(value.brand);
@@ -360,8 +352,8 @@ define(
 
                 selectPaymentMethodAction(this.getData());
                 checkoutData.setSelectedPaymentMethod(this.item.method);
-                $("#mundipagg_two_creditcard_installments_second").val('');
-                $("#mundipagg_two_creditcard_installments_first").val('');
+                $("#pagarme_two_creditcard_installments_second").val('');
+                $("#pagarme_two_creditcard_installments_first").val('');
 
                 return true;
             },
@@ -378,7 +370,7 @@ define(
             },
 
             isSaveCardStyle: function() {
-                if (window.checkoutConfig.payment.mundipagg_two_creditcard.selected_card) {
+                if (window.checkoutConfig.payment.pagarme_two_creditcard.selected_card) {
                     return 'display: none;';
                 }
 
@@ -426,15 +418,15 @@ define(
             },
 
             getCode: function () {
-                return 'mundipagg_two_creditcard';
+                return 'pagarme_two_creditcard';
             },
 
             isActive: function () {
-                return window.checkoutConfig.payment.mundipagg_two_creditcard.active;
+                return window.checkoutConfig.payment.pagarme_two_creditcard.active;
             },
 
             isInstallmentsActive: function () {
-                return window.checkoutConfig.payment.ccform.installments.active['mundipagg_creditcard'];
+                return window.checkoutConfig.payment.ccform.installments.active['pagarme_creditcard'];
             },
             getCcInstallmentsFirst: function() {
                 var self = this;
@@ -535,7 +527,7 @@ define(
             },
 
             onInstallmentItemChange: function() {
-                this.updateTotalWithTax(jQuery('#mundipagg_two_creditcard_installments_first option:selected').attr('interest'), jQuery('#mundipagg_two_creditcard_installments_second option:selected').attr('interest'));
+                this.updateTotalWithTax(jQuery('#pagarme_two_creditcard_installments_first option:selected').attr('interest'), jQuery('#pagarme_two_creditcard_installments_second option:selected').attr('interest'));
             },
 
             updateTotalWithTax: function(newTaxFirst, newTaxSecond) {
@@ -582,20 +574,20 @@ define(
             },
 
             onSavedCardChange: function(idValue) {
-                if (jQuery('#mundipagg_two_creditcard_card_' + idValue).val()) {
-                    jQuery('#mundipagg_two_creditcard_cc_icons_' + idValue).css('display','none');
-                    jQuery('#mundipagg_two_creditcard_cc_savecard_' + idValue).css('display','none');
-                    jQuery('#mundipagg_two_creditcard_cc_number_div_' + idValue).css('display','none');
-                    jQuery('#mundipagg_two_creditcard_cc_owner_div_' + idValue).css('display','none');
-                    jQuery('#mundipagg_two_creditcard_cc_type_exp_div_' + idValue).css('display','none');
-                    jQuery('#mundipagg_two_creditcard_cc_type_cvv_div_' + idValue).css('display','none');
+                if (jQuery('#pagarme_two_creditcard_card_' + idValue).val()) {
+                    jQuery('#pagarme_two_creditcard_cc_icons_' + idValue).css('display','none');
+                    jQuery('#pagarme_two_creditcard_cc_savecard_' + idValue).css('display','none');
+                    jQuery('#pagarme_two_creditcard_cc_number_div_' + idValue).css('display','none');
+                    jQuery('#pagarme_two_creditcard_cc_owner_div_' + idValue).css('display','none');
+                    jQuery('#pagarme_two_creditcard_cc_type_exp_div_' + idValue).css('display','none');
+                    jQuery('#pagarme_two_creditcard_cc_type_cvv_div_' + idValue).css('display','none');
                 }else{
-                    jQuery('#mundipagg_two_creditcard_cc_icons_' + idValue).css('display','block');
-                    jQuery('#mundipagg_two_creditcard_cc_savecard_' + idValue).css('display','block');
-                    jQuery('#mundipagg_two_creditcard_cc_number_div_' + idValue).css('display','block');
-                    jQuery('#mundipagg_two_creditcard_cc_owner_div_' + idValue).css('display','block');
-                    jQuery('#mundipagg_two_creditcard_cc_type_exp_div_' + idValue).css('display','block');
-                    jQuery('#mundipagg_two_creditcard_cc_type_cvv_div_' + idValue).css('display','block');
+                    jQuery('#pagarme_two_creditcard_cc_icons_' + idValue).css('display','block');
+                    jQuery('#pagarme_two_creditcard_cc_savecard_' + idValue).css('display','block');
+                    jQuery('#pagarme_two_creditcard_cc_number_div_' + idValue).css('display','block');
+                    jQuery('#pagarme_two_creditcard_cc_owner_div_' + idValue).css('display','block');
+                    jQuery('#pagarme_two_creditcard_cc_type_exp_div_' + idValue).css('display','block');
+                    jQuery('#pagarme_two_creditcard_cc_type_cvv_div_' + idValue).css('display','block');
                 }
             },
         })

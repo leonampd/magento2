@@ -139,15 +139,15 @@ define(
                         cardNumber = cardNumber.substring(0,6);
                     }
 
-                    if (window.checkoutConfig.payment.mundipagg_creditcard.number_credit_card == cardNumber) {
-                        value = window.checkoutConfig.payment.mundipagg_creditcard.data_credit_card;
+                    if (window.checkoutConfig.payment.pagarme_creditcard.number_credit_card == cardNumber) {
+                        value = window.checkoutConfig.payment.pagarme_creditcard.data_credit_card;
 
                         result.push($.extend(true, {}, value));
 
                         return result;
                     }
 
-                    window.checkoutConfig.payment.mundipagg_creditcard.number_credit_card = cardNumber;
+                    window.checkoutConfig.payment.pagarme_creditcard.number_credit_card = cardNumber;
                     
 
                     $.ajax({
@@ -162,7 +162,7 @@ define(
                                 size: data.cvv
                             }
 
-                            window.checkoutConfig.payment.mundipagg_creditcard.size_credit_card = data.lenghts[data.lenghts.length - 1];
+                            window.checkoutConfig.payment.pagarme_creditcard.size_credit_card = data.lenghts[data.lenghts.length - 1];
 
                             value = {
                                 title: data.brandName,
@@ -173,7 +173,7 @@ define(
                                 code: codeWithArray
                             };
 
-                            window.checkoutConfig.payment.mundipagg_creditcard.data_credit_card = value;
+                            window.checkoutConfig.payment.pagarme_creditcard.data_credit_card = value;
 
                             result.push($.extend(true, {}, value));
 

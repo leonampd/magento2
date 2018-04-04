@@ -1,5 +1,5 @@
 <?php
-namespace MundiPagg\MundiPagg\Observer;
+namespace PagarMe\Magento2\Observer;
 
 use Magento\Framework\Event\ObserverInterface;
 use Magento\Framework\App\Request\DataPersistorInterface;
@@ -10,16 +10,16 @@ use Magento\Framework\UrlInterface;
 use Magento\Framework\App\ResponseFactory;
 use Magento\Framework\App\Cache\TypeListInterface;
 use Magento\Framework\App\Cache\Frontend\Pool;
-use MundiPagg\MundiPagg\Model\MundiPaggConfigProvider;
+use PagarMe\Magento2\Model\PagarMeConfigProvider;
 
 class DataValidateAdmin implements ObserverInterface
 {
     /**
-     * Contains the config provider for Mundipagg
+     * Contains the config provider for Pagarme
      *
-     * @var \MundiPagg\MundiPagg\Model\MundiPaggConfigProvider
+     * @var \PagarMe\Magento2\Model\PagarMeConfigProvider
      */
-    protected $configProviderMundipagg;
+    protected $configProviderPagarme;
 
     /**
      *
@@ -53,7 +53,7 @@ class DataValidateAdmin implements ObserverInterface
     protected $cacheFrontendPool;
 
     public function __construct(
-        MundiPaggConfigProvider $configProviderMundipagg,
+        PagarMeConfigProvider $configProviderPagarme,
         ManagerInterface $messageManager,
         StoreManagerInterface $storeManager,
         UrlInterface $urlBuilder,
@@ -68,7 +68,7 @@ class DataValidateAdmin implements ObserverInterface
         $this->responseFactory = $responseFactory;
         $this->cacheTypeList = $cacheTypeList;
         $this->cacheFrontendPool = $cacheFrontendPool;
-        $this->configProviderMundipagg = $configProviderMundipagg;
+        $this->configProviderPagarme = $configProviderPagarme;
     }
 
     /**
@@ -88,9 +88,9 @@ class DataValidateAdmin implements ObserverInterface
         $disableMessage;
         $url = $this->urlBuilder->getUrl('adminhtml/system_config/edit/section/payment');
 
-        if(!$this->configProviderMundipagg->validateSoftDescription()){
+        if(!$this->configProviderPagarme->validateSoftDescription()){
             $disableModule = true;
-            $disableMessage[] = __("Error to save MundiPagg Soft Description Credit Card, size too big max 22 character." , 
+            $disableMessage[] = __("Error to save PagarMe Soft Description Credit Card, size too big max 22 character." , 
                 $url
             );
         }

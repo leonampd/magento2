@@ -1,12 +1,6 @@
 <?php
 /**
  * Phtml List Cards
- *
- * @author      MundiPagg Embeddables Team <embeddables@mundipagg.com>
- * @copyright   2017 MundiPagg (http://www.mundipagg.com)
- * @license     http://www.mundipagg.com Copyright
- *
- * @link        http://www.mundipagg.com
  */
 
 $i = 0;
@@ -28,7 +22,7 @@ $i = 0;
 		<tbody>
 			<?php foreach ($block->getCardsList() as $item): ?>
 				<?php $i++; ?>
-				<?php $url = $this->getBaseUrl() . 'mundipagg/customer/remove/id/'. $item->getId() ?>
+				<?php $url = $this->getBaseUrl() . 'pagarme/customer/remove/id/'. $item->getId() ?>
 				<tr>
 					<td><?php echo $i ?></td>
 					<td><?php echo __('****.****.****.') ?><?php echo $item->getLastFourNumbers() ?></td>

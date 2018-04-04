@@ -1,19 +1,19 @@
 <?php
 
 
-namespace MundiPagg\MundiPagg\Model;
+namespace PagarMe\Magento2\Model;
 
-use MundiPagg\MundiPagg\Api\CardsRepositoryInterface;
-use MundiPagg\MundiPagg\Api\Data\CardsSearchResultsInterfaceFactory;
-use MundiPagg\MundiPagg\Api\Data\CardsInterfaceFactory;
+use PagarMe\Magento2\Api\CardsRepositoryInterface;
+use PagarMe\Magento2\Api\Data\CardsSearchResultsInterfaceFactory;
+use PagarMe\Magento2\Api\Data\CardsInterfaceFactory;
 use Magento\Framework\Api\DataObjectHelper;
 use Magento\Framework\Api\SortOrder;
 use Magento\Framework\Exception\CouldNotDeleteException;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\Exception\CouldNotSaveException;
 use Magento\Framework\Reflection\DataObjectProcessor;
-use MundiPagg\MundiPagg\Model\ResourceModel\Cards as ResourceCards;
-use MundiPagg\MundiPagg\Model\ResourceModel\Cards\CollectionFactory as CardsCollectionFactory;
+use PagarMe\Magento2\Model\ResourceModel\Cards as ResourceCards;
+use PagarMe\Magento2\Model\ResourceModel\Cards\CollectionFactory as CardsCollectionFactory;
 use Magento\Store\Model\StoreManagerInterface;
 
 class CardsRepository implements CardsRepositoryInterface
@@ -70,7 +70,7 @@ class CardsRepository implements CardsRepositoryInterface
      * {@inheritdoc}
      */
     public function save(
-        \MundiPagg\MundiPagg\Api\Data\CardsInterface $cards
+        \PagarMe\Magento2\Api\Data\CardsInterface $cards
     ) {
         try {
             $cards->getResource()->save($cards);
@@ -136,7 +136,7 @@ class CardsRepository implements CardsRepositoryInterface
      * {@inheritdoc}
      */
     public function delete(
-        \MundiPagg\MundiPagg\Api\Data\CardsInterface $cards
+        \PagarMe\Magento2\Api\Data\CardsInterface $cards
     ) {
         try {
             $cards->getResource()->delete($cards);

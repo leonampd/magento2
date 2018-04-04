@@ -1,6 +1,6 @@
 <?php
 
-namespace MundiPagg\MundiPagg\Model\Enum;
+namespace PagarMe\Magento2\Model\Enum;
 
 abstract class CreditCardBrandEnum
 {

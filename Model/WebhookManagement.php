@@ -1,10 +1,10 @@
 <?php
 
-namespace MundiPagg\MundiPagg\Model;
+namespace PagarMe\Magento2\Model;
 
-use MundiPagg\MundiPagg\Api\WebhookManagementInterface;
+use PagarMe\Magento2\Api\WebhookManagementInterface;
 use Magento\Sales\Model\Order;
-use MundiPagg\MundiPagg\Model\ChargesFactory;
+use PagarMe\Magento2\Model\ChargesFactory;
 use Magento\Sales\Api\OrderRepositoryInterface; 
 use Magento\Sales\Model\Service\InvoiceService;
 use Magento\Sales\Model\Order\Email\Sender\InvoiceSender;
@@ -12,12 +12,12 @@ use Magento\Framework\DB\Transaction;
 use Magento\Sales\Model\Order\CreditmemoFactory;
 use Magento\Sales\Model\Service\CreditmemoService;
 use Magento\Sales\Model\Service\OrderService;
-use MundiPagg\MundiPagg\Helper\Logger;
+use PagarMe\Magento2\Helper\Logger;
 
 class WebhookManagement implements WebhookManagementInterface
 {
     /**
-     * \MundiPagg\MundiPagg\Model\ChargesFactory
+     * \PagarMe\Magento2\Model\ChargesFactory
      */
     protected $chargesFactory;
 
@@ -62,7 +62,7 @@ class WebhookManagement implements WebhookManagementInterface
     protected $orderService;
 
     /**
-     * @var \MundiPagg\MundiPagg\Helper\Logger
+     * @var \PagarMe\Magento2\Helper\Logger
      */
     protected $logger;
 
@@ -415,7 +415,7 @@ class WebhookManagement implements WebhookManagementInterface
     }
 
     /**
-     * @return \MundiPagg\MundiPagg\Helper\Logger
+     * @return \PagarMe\Magento2\Helper\Logger
      */
     public function getLogger()
     {
@@ -423,11 +423,11 @@ class WebhookManagement implements WebhookManagementInterface
     }
 
     /**
-     * @param \MundiPagg\MundiPagg\Helper\Logger $logger
+     * @param \PagarMe\Magento2\Helper\Logger $logger
      *
      * @return self
      */
-    public function setLogger(\MundiPagg\MundiPagg\Helper\Logger $logger)
+    public function setLogger(\PagarMe\Magento2\Helper\Logger $logger)
     {
         $this->logger = $logger;
 

@@ -1,23 +1,17 @@
 <?php
 /**
  * Class CreditCardDataAssignObserver
- *
- * @author      MundiPagg Embeddables Team <embeddables@mundipagg.com>
- * @copyright   2017 MundiPagg (http://www.mundipagg.com)
- * @license     http://www.mundipagg.com Copyright
- *
- * @link        http://www.mundipagg.com
  */
 
-namespace MundiPagg\MundiPagg\Observer;
+namespace PagarMe\Magento2\Observer;
 
 
 use Magento\Framework\DataObject;
 use Magento\Framework\Event\Observer;
 use Magento\Quote\Api\Data\PaymentInterface;
 use Magento\Framework\Event\ObserverInterface;
-use MundiPagg\MundiPagg\Api\InstallmentsByBrandManagementInterface;
-use MundiPagg\MundiPagg\Api\InstallmentsByBrandAndAmountManagementInterface;
+use PagarMe\Magento2\Api\InstallmentsByBrandManagementInterface;
+use PagarMe\Magento2\Api\InstallmentsByBrandAndAmountManagementInterface;
 
 
 class CreditCardOrderPlaceBeforeObserver implements ObserverInterface
@@ -41,7 +35,8 @@ class CreditCardOrderPlaceBeforeObserver implements ObserverInterface
     {
         $order = $observer->getOrder();
         $payment = $order->getPayment();
-        if ('pagarme_creditcard' != $payment->getMethod() && 'pagarme_billet_creditcard' != $payment->getMethod() && 'mundipagg_two_creditcard' != $payment->getMethod()) {
+
+        if ('pagarme_creditcard' != $payment->getMethod() && 'pagarme_billet_creditcard' != $payment->getMethod() && 'pagarme_two_creditcard' != $payment->getMethod()) {
             return $this;
         }
 

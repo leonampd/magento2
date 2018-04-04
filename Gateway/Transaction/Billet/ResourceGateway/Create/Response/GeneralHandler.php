@@ -1,31 +1,25 @@
 <?php
 /**
  * Class GeneralHandler
- *
- * @author      MundiPagg Embeddables Team <embeddables@mundipagg.com>
- * @copyright   2017 MundiPagg (http://www.mundipagg.com)
- * @license     http://www.mundipagg.com Copyright
- *
- * @link        http://www.mundipagg.com
  */
 
-namespace MundiPagg\MundiPagg\Gateway\Transaction\Billet\ResourceGateway\Create\Response;
+namespace PagarMe\Magento2\Gateway\Transaction\Billet\ResourceGateway\Create\Response;
 
 
 use Magento\Payment\Gateway\Response\HandlerInterface;
-use MundiPagg\MundiPagg\Gateway\Transaction\Base\ResourceGateway\Response\AbstractHandler;
-use MundiPagg\MundiPagg\Model\ChargesFactory;
-use MundiPagg\MundiPagg\Helper\Logger;
+use PagarMe\Magento2\Gateway\Transaction\Base\ResourceGateway\Response\AbstractHandler;
+use PagarMe\Magento2\Model\ChargesFactory;
+use PagarMe\Magento2\Helper\Logger;
 
 class GeneralHandler extends AbstractHandler implements HandlerInterface
 {
     /**
-     * \MundiPagg\MundiPagg\Model\ChargesFactory
+     * \PagarMe\Magento2\Model\ChargesFactory
      */
     protected $modelCharges;
 
     /**
-     * @var \MundiPagg\MundiPagg\Helper\Logger
+     * @var \PagarMe\Magento2\Helper\Logger
      */
     protected $logger;
 

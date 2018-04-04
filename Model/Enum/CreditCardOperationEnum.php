@@ -1,10 +1,10 @@
 <?php
 
-namespace MundiPagg\MundiPagg\Model\Enum;
+namespace PagarMe\Magento2\Model\Enum;
 
 /**
  * Class CreditCardOperationEnum
- * @package MundiPagg\MundiPagg\Model\Enum
+ * @package PagarMe\Magento2\Model\Enum
  */
 abstract class CreditCardOperationEnum
 {

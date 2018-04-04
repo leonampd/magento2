@@ -1,21 +1,15 @@
 <?php
 /**
  * Class Billet
- *
- * @author      MundiPagg Embeddables Team <embeddables@mundipagg.com>
- * @copyright   2017 MundiPagg (http://www.mundipagg.com)
- * @license     http://www.mundipagg.com Copyright
- *
- * @link        http://www.mundipagg.com
  */
 
-namespace MundiPagg\MundiPagg\Block\Payment\Info;
+namespace PagarMe\Magento2\Block\Payment\Info;
 
 use Magento\Payment\Block\Info\Cc;
 
 class BilletCreditCard extends Cc
 {
-    const TEMPLATE = 'MundiPagg_MundiPagg::info/billetCreditCard.phtml';
+    const TEMPLATE = 'PagarMe_Magento2::info/billetCreditCard.phtml';
 
     /**
      * {@inheritdoc}

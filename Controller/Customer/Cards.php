@@ -1,5 +1,5 @@
 <?php
-namespace MundiPagg\MundiPagg\Controller\Customer;
+namespace PagarMe\Magento2\Controller\Customer;
 
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
@@ -37,7 +37,7 @@ class Cards extends Action
             return; # code... 
         }
         $result = $this->pageFactory->create();
-        $result->getConfig()->getTitle()->set("My Cards MundiPagg");
+        $result->getConfig()->getTitle()->set("My Cards PagarMe");
         
         return $result;
     }

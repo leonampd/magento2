@@ -1,5 +1,5 @@
 <?php
-namespace MundiPagg\MundiPagg\Controller\Customer;
+namespace PagarMe\Magento2\Controller\Customer;
 
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
@@ -7,7 +7,7 @@ use Magento\Framework\Controller\Result\JsonFactory;
 use Magento\Framework\View\Result\PageFactory;
 use Magento\Customer\Model\Session;
 use Magento\Framework\App\Request\Http;
-use MundiPagg\MundiPagg\Model\CardsRepository;
+use PagarMe\Magento2\Model\CardsRepository;
 
 class Remove extends Action
 {
@@ -56,7 +56,7 @@ class Remove extends Action
             $this->messageManager->addError(__($e->getMessage()));
         }
 
-        $this->_redirect('mundipagg/customer/cards'); 
+        $this->_redirect('pagarme/customer/cards'); 
 
         return;
     }

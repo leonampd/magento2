@@ -1,6 +1,6 @@
 <?php
 
-namespace MundiPagg\MundiPagg\Api;
+namespace PagarMe\Magento2\Api;
 
 interface InstallmentsByBrandAndAmountManagementInterface
 {

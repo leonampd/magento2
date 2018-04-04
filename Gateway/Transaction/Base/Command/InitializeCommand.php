@@ -1,15 +1,9 @@
 <?php
 /**
  * Class InitializedCommand
- *
- * @author      MundiPagg Embeddables Team <embeddables@mundipagg.com>
- * @copyright   2017 MundiPagg (http://www.mundipagg.com)
- * @license     http://www.mundipagg.com Copyright
- *
- * @link        http://www.mundipagg.com
  */
 
-namespace MundiPagg\MundiPagg\Gateway\Transaction\Base\Command;
+namespace PagarMe\Magento2\Gateway\Transaction\Base\Command;
 
 
 use Magento\Payment\Gateway\Helper\SubjectReader;
@@ -17,7 +11,7 @@ use Magento\Sales\Model\Order;
 use Magento\Sales\Api\Data\OrderInterface;
 use Magento\Payment\Gateway\CommandInterface;
 use Magento\Sales\Model\Order\Payment;
-use MundiPagg\MundiPagg\Model\Ui\CreditCard\ConfigProvider;
+use PagarMe\Magento2\Model\Ui\CreditCard\ConfigProvider;
 
 class InitializeCommand implements CommandInterface
 {
@@ -61,6 +55,8 @@ class InitializeCommand implements CommandInterface
         }
 
         $stateObject->setData('is_notified', false);
+        var_dump($stateObject);
+        exit;
 
         return $this;
     }
