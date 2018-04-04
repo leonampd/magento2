@@ -15,7 +15,7 @@ use Magento\Payment\Block\Info\Cc;
 
 class CreditCard extends Cc
 {
-    const TEMPLATE = 'MundiPagg_MundiPagg::info/creditCard.phtml';
+    const TEMPLATE = 'PagarMe_Magento2::info/creditCard.phtml';
 
     public function _construct()
     {

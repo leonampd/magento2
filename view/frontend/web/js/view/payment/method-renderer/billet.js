@@ -24,7 +24,7 @@ define(
 
         return Component.extend({
             defaults: {
-                template: 'MundiPagg_MundiPagg/payment/billet'
+                template: 'PagarMe_Magento2/payment/billet'
             },
             getText: function () {
                 return window.checkoutConfig.payment.mundipagg_billet.text;
