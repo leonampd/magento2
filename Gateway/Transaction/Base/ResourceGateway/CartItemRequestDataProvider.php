@@ -1,19 +1,13 @@
 <?php
 /**
  * Class CartItemRequestDataProvider
- *
- * @author      MundiPagg Embeddables Team <embeddables@mundipagg.com>
- * @copyright   2017 MundiPagg (http://www.mundipagg.com)
- * @license     http://www.mundipagg.com Copyright
- *
- * @link        http://www.mundipagg.com
  */
 
-namespace MundiPagg\MundiPagg\Gateway\Transaction\Base\ResourceGateway;
+namespace PagarMe\Magento2\Gateway\Transaction\Base\ResourceGateway;
 
 
 use Magento\Sales\Model\Order\Item;
-use MundiPagg\MundiPagg\Api\CartItemRequestDataProviderInterface;
+use PagarMe\Magento2\Api\CartItemRequestDataProviderInterface;
 
 class CartItemRequestDataProvider implements CartItemRequestDataProviderInterface
 {

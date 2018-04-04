@@ -1,19 +1,13 @@
 <?php
 /**
  * Class Validator
- *
- * @author      MundiPagg Embeddables Team <embeddables@mundipagg.com>
- * @copyright   2017 MundiPagg (http://www.mundipagg.com)
- * @license     http://www.mundipagg.com Copyright
- *
- * @link        http://www.mundipagg.com
  */
 
-namespace MundiPagg\MundiPagg\Gateway\Transaction\TwoCreditCard\ResourceGateway\Capture\Response;
+namespace PagarMe\Magento2\Gateway\Transaction\TwoCreditCard\ResourceGateway\Capture\Response;
 
 
 use Magento\Payment\Gateway\Validator\ValidatorInterface;
-use MundiPagg\MundiPagg\Gateway\Transaction\Base\ResourceGateway\Response\AbstractValidator;
+use PagarMe\Magento2\Gateway\Transaction\Base\ResourceGateway\Response\AbstractValidator;
 
 class Validator extends AbstractValidator implements ValidatorInterface
 {
@@ -23,7 +17,7 @@ class Validator extends AbstractValidator implements ValidatorInterface
     public function validate(array $validationSubject)
     {
         if (!isset($validationSubject['response'])) {
-            throw new \InvalidArgumentException('MundiPagg Credit Card Capture Response object should be provided');
+            throw new \InvalidArgumentException('PagarMe Credit Card Capture Response object should be provided');
         }
 
         $isValid = true;

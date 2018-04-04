@@ -1,19 +1,19 @@
 <?php
-namespace MundiPagg\MundiPagg\Model;
+namespace PagarMe\Magento2\Model;
 
 use \Magento\Store\Model\ScopeInterface;
 
 /**
- * Class MundiPaggConfigProvider
+ * Class PagarMeConfigProvider
  *
- * @package MundiPagg\MundiPagg\Model
+ * @package PagarMe\Magento2\Model
  */
-class MundiPaggConfigProvider
+class PagarMeConfigProvider
 {
     /**
      * Contains if the module is active or not
      */
-    const XML_PATH_SOFTDESCRIPTION = 'payment/mundipagg_creditcard/soft_description';
+    const XML_PATH_SOFTDESCRIPTION = 'payment/pagarme_creditcard/soft_description';
 
     /**
      * Contains scope config of Magento

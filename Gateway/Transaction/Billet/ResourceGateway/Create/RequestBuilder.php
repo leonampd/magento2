@@ -1,15 +1,9 @@
 <?php
 /**
  * Class RequestBuilder
- *
- * @author      MundiPagg Embeddables Team <embeddables@mundipagg.com>
- * @copyright   2017 MundiPagg (http://www.mundipagg.com)
- * @license     http://www.mundipagg.com Copyright
- *
- * @link        http://www.mundipagg.com
  */
 
-namespace MundiPagg\MundiPagg\Gateway\Transaction\Billet\ResourceGateway\Create;
+namespace PagarMe\Magento2\Gateway\Transaction\Billet\ResourceGateway\Create;
 
 use function Couchbase\defaultDecoder;
 use Magento\Payment\Gateway\Data\OrderAdapterInterface;
@@ -17,20 +11,20 @@ use Magento\Payment\Gateway\Data\PaymentDataObjectInterface;
 use Magento\Payment\Gateway\Request\BuilderInterface;
 use Magento\Payment\Model\InfoInterface;
 use Magento\Sales\Model\Order\Item;
-use MundiPagg\MundiPagg\Api\BilletRequestDataProviderInterface;
-use MundiPagg\MundiPagg\Api\BilletRequestDataProviderInterfaceFactory;
-use MundiPagg\MundiPagg\Api\CartItemRequestDataProviderInterface;
-use MundiPagg\MundiPagg\Api\CartItemRequestDataProviderInterfaceFactory;
+use PagarMe\Magento2\Api\BilletRequestDataProviderInterface;
+use PagarMe\Magento2\Api\BilletRequestDataProviderInterfaceFactory;
+use PagarMe\Magento2\Api\CartItemRequestDataProviderInterface;
+use PagarMe\Magento2\Api\CartItemRequestDataProviderInterfaceFactory;
 use Magento\Checkout\Model\Cart;
-use MundiPagg\MundiPagg\Gateway\Transaction\Base\Config\Config;
-use MundiPagg\MundiPagg\Helper\ModuleHelper;
-use MundiPagg\MundiPagg\Model\Source\Bank;
-use MundiPagg\MundiPagg\Helper\Logger;
+use PagarMe\Magento2\Gateway\Transaction\Base\Config\Config;
+use PagarMe\Magento2\Helper\ModuleHelper;
+use PagarMe\Magento2\Model\Source\Bank;
+use PagarMe\Magento2\Helper\Logger;
 
 class RequestBuilder implements BuilderInterface
 {
 
-    const MODULE_NAME = 'MundiPagg_MundiPagg';
+    const MODULE_NAME = 'PagarMe_Magento2';
     const NAME_METADATA = 'Magento 2';
     const SHIPPING = 1;
     const BILLING = 0;
@@ -48,7 +42,7 @@ class RequestBuilder implements BuilderInterface
     protected $paymentData;
 
     /**
-     * @var \MundiPagg\MundiPagg\Helper\Logger
+     * @var \PagarMe\Magento2\Helper\Logger
      */
     protected $logger;
 
@@ -459,7 +453,7 @@ class RequestBuilder implements BuilderInterface
     }
 
     /**
-     * @return \MundiPagg\MundiPagg\Helper\Logger
+     * @return \PagarMe\Magento2\Helper\Logger
      */
     public function getLogger()
     {
@@ -467,11 +461,11 @@ class RequestBuilder implements BuilderInterface
     }
 
     /**
-     * @param \MundiPagg\MundiPagg\Helper\Logger $logger
+     * @param \PagarMe\Magento2\Helper\Logger $logger
      *
      * @return self
      */
-    public function setLogger(\MundiPagg\MundiPagg\Helper\Logger $logger)
+    public function setLogger(\PagarMe\Magento2\Helper\Logger $logger)
     {
         $this->logger = $logger;
 

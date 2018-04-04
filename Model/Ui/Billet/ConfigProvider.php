@@ -1,23 +1,17 @@
 <?php
 /**
  * Class ConfigProvider
- *
- * @author      MundiPagg Embeddables Team <embeddables@mundipagg.com>
- * @copyright   2017 MundiPagg (http://www.mundipagg.com)
- * @license     http://www.mundipagg.com Copyright
- *
- * @link        http://www.mundipagg.com
  */
 
-namespace MundiPagg\MundiPagg\Model\Ui\Billet;
+namespace PagarMe\Magento2\Model\Ui\Billet;
 
 
 use Magento\Checkout\Model\ConfigProviderInterface;
-use MundiPagg\MundiPagg\Gateway\Transaction\Billet\Config\ConfigInterface;
+use PagarMe\Magento2\Gateway\Transaction\Billet\Config\ConfigInterface;
 
 final class ConfigProvider implements ConfigProviderInterface
 {
-    const CODE = 'mundipagg_billet';
+    const CODE = 'pagarme_billet';
 
     protected $billetConfig;
 

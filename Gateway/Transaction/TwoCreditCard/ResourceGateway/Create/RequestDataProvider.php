@@ -1,24 +1,18 @@
 <?php
 /**
  * Class RequestDataProvider
- *
- * @author      MundiPagg Embeddables Team <embeddables@mundipagg.com>
- * @copyright   2017 MundiPagg (http://www.mundipagg.com)
- * @license     http://www.mundipagg.com Copyright
- *
- * @link        http://www.mundipagg.com
  */
 
-namespace MundiPagg\MundiPagg\Gateway\Transaction\TwoCreditCard\ResourceGateway\Create;
+namespace PagarMe\Magento2\Gateway\Transaction\TwoCreditCard\ResourceGateway\Create;
 
 
 use Magento\Checkout\Model\Session;
 use Magento\Payment\Gateway\Data\OrderAdapterInterface;
 use Magento\Payment\Model\InfoInterface;
-use MundiPagg\MundiPagg\Api\CreditCardRequestDataProviderInterface;
-use MundiPagg\MundiPagg\Gateway\Transaction\Base\ResourceGateway\AbstractRequestDataProvider;
-use MundiPagg\MundiPagg\Gateway\Transaction\TwoCreditCard\Config\ConfigInterface;
-use MundiPagg\MundiPagg\Helper\CustomerAddressInterface;
+use PagarMe\Magento2\Api\CreditCardRequestDataProviderInterface;
+use PagarMe\Magento2\Gateway\Transaction\Base\ResourceGateway\AbstractRequestDataProvider;
+use PagarMe\Magento2\Gateway\Transaction\TwoCreditCard\Config\ConfigInterface;
+use PagarMe\Magento2\Helper\CustomerAddressInterface;
 
 class RequestDataProvider
     extends AbstractRequestDataProvider
@@ -76,10 +70,10 @@ class RequestDataProvider
     public function getCreditCardOperation()
     {
         if ($this->getConfig()->getPaymentAction()) {
-            return \MundiPagg\MundiPagg\Model\Enum\CreditCardOperationEnum::AUTH_ONLY;
+            return \PagarMe\Magento2\Model\Enum\CreditCardOperationEnum::AUTH_ONLY;
         }
 
-        return \MundiPagg\MundiPagg\Model\Enum\CreditCardOperationEnum::AUTH_AND_CAPTURE;
+        return \PagarMe\Magento2\Model\Enum\CreditCardOperationEnum::AUTH_AND_CAPTURE;
     }
 
     /**

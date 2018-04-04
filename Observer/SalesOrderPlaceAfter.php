@@ -1,6 +1,6 @@
 <?php
 
-namespace MundiPagg\MundiPagg\Observer;
+namespace PagarMe\Magento2\Observer;
 
 use Magento\Framework\Event\ObserverInterface;
 use Magento\Framework\Event\Observer as EventObserver;
@@ -12,8 +12,8 @@ use Magento\Customer\Api\CustomerRepositoryInterface;
 use Magento\Sales\Model\Service\InvoiceService;
 use Magento\Sales\Model\Order\Email\Sender\InvoiceSender;
 use Magento\Framework\DB\Transaction;
-use MundiPagg\MundiPagg\Gateway\Transaction\CreditCard\Config\Config as ConfigCreditCard;
-use MundiPagg\MundiPagg\Helper\Logger;
+use PagarMe\Magento2\Gateway\Transaction\CreditCard\Config\Config as ConfigCreditCard;
+use PagarMe\Magento2\Helper\Logger;
 
 class SalesOrderPlaceAfter implements ObserverInterface
 {
@@ -28,7 +28,7 @@ class SalesOrderPlaceAfter implements ObserverInterface
     protected $checkoutSession;
 
     /**
-     * @var \MundiPagg\MundiPagg\Helper\Logger
+     * @var \PagarMe\Magento2\Helper\Logger
      */
     protected $logger;
 
@@ -58,13 +58,13 @@ class SalesOrderPlaceAfter implements ObserverInterface
     protected $invoiceSender;
 
     /**
-     * \MundiPagg\MundiPagg\Gateway\Transaction\CreditCard\Config\Config
+     * \PagarMe\Magento2\Gateway\Transaction\CreditCard\Config\Config
      */
     protected $configCreditCard;
 
     /**
      * @param \Magento\Checkout\Model\Session $checkoutSession
-     * @param \MundiPagg\MundiPagg\Helper\Logger $logger
+     * @param \PagarMe\Magento2\Helper\Logger $logger
      * @param Api $api
      */
     public function __construct(
@@ -101,7 +101,7 @@ class SalesOrderPlaceAfter implements ObserverInterface
         $order = $event->getOrder();
         $payment = $order->getPayment();
 
-        if ($payment->getMethod() != 'mundipagg_creditcard') {
+        if ($payment->getMethod() != 'pagarme_creditcard') {
             return $this;
         }
 
@@ -163,7 +163,7 @@ class SalesOrderPlaceAfter implements ObserverInterface
     }
 
     /**
-     * @return \MundiPagg\MundiPagg\Helper\Logger
+     * @return \PagarMe\Magento2\Helper\Logger
      */
     public function getLogger()
     {
@@ -171,7 +171,7 @@ class SalesOrderPlaceAfter implements ObserverInterface
     }
 
     /**
-     * @param \MundiPagg\MundiPagg\Helper\Logger $logger
+     * @param \PagarMe\Magento2\Helper\Logger $logger
      *
      * @return self
      */

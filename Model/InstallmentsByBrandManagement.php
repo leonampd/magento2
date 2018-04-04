@@ -1,20 +1,14 @@
 <?php
 /**
  * Class InstallmentsByBrandManagements
- *
- * @author      MundiPagg Embeddables Team <embeddables@mundipagg.com>
- * @copyright   2017 MundiPagg (http://www.mundipagg.com)
- * @license     http://www.mundipagg.com Copyright
- *
- * @link        http://www.mundipagg.com
  */
 
-namespace MundiPagg\MundiPagg\Model;
+namespace PagarMe\Magento2\Model;
 
 use Magento\Framework\Api\SimpleBuilderInterface;
-use MundiPagg\MundiPagg\Api\InstallmentsByBrandManagementInterface;
+use PagarMe\Magento2\Api\InstallmentsByBrandManagementInterface;
 use Magento\Checkout\Model\Session;
-use MundiPagg\MundiPagg\Model\Installments\Config\ConfigByBrand as Config;
+use PagarMe\Magento2\Model\Installments\Config\ConfigByBrand as Config;
 
 class InstallmentsByBrandManagement implements InstallmentsByBrandManagementInterface
 {

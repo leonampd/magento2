@@ -1,20 +1,14 @@
 <?php
 /**
  * Class Billet
- *
- * @author      MundiPagg Embeddables Team <embeddables@mundipagg.com>
- * @copyright   2017 MundiPagg (http://www.mundipagg.com)
- * @license     http://www.mundipagg.com Copyright
- *
- * @link        http://www.mundipagg.com
  */
 
-namespace MundiPagg\MundiPagg\Block\Customer;
+namespace PagarMe\Magento2\Block\Customer;
 
 
 use Magento\Framework\View\Element\Template;
 use Magento\Framework\View\Element\Template\Context;
-use MundiPagg\MundiPagg\Model\CardsRepository;
+use PagarMe\Magento2\Model\CardsRepository;
 use Magento\Framework\Api\SearchCriteriaBuilder;
 use \Magento\Customer\Model\Session;
 

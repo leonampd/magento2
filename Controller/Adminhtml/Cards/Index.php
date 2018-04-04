@@ -1,7 +1,7 @@
 <?php
 
 
-namespace MundiPagg\MundiPagg\Controller\Adminhtml\Cards;
+namespace PagarMe\Magento2\Controller\Adminhtml\Cards;
 
 class Index extends \Magento\Backend\App\Action
 {

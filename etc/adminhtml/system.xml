@@ -2,13 +2,13 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
 	<system>
 		<tab id="pagarme" sortOrder="999" translate="label">
-			<label>Pagar.me</label>
+			<label>PagarMe</label>
 		</tab>
-		<!-- <include path="MundiPagg_MundiPagg::system/antifraud.xml"/> -->
-		<section id="mundipagg" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
-			<label>Pagar.me</label>
+		<!-- <include path="PagarMe_Magento2::system/antifraud.xml"/> -->
+		<section id="pagarme" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+			<label>PagarMe</label>
 			<tab>pagarme</tab>
-			<resource>MundiPagg_MundiPagg::config_mundipagg_mundipagg</resource>
+			<resource>PagarMe_Magento2::config_pagarme_magento2</resource>
 			<group id="general" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
 				<label>General</label>
 				<field id="is_active" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label" type="select">
@@ -19,11 +19,11 @@
 			</group>
 		</section>
 		<section id="payment" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="1000" translate="label">
-            <group id="mundipagg_mundipagg" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+            <group id="pagarme_magento2" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
                 <label>
                     <![CDATA[Pagar.me&nbsp;&nbsp;<i>Payment Solutions.</i>]]>
                 </label>
-                <frontend_model>MundiPagg\MundiPagg\Block\Adminhtml\System\Config\Fieldset\Group</frontend_model>
+                <frontend_model>PagarMe\Magento2\Block\Adminhtml\System\Config\Fieldset\Group</frontend_model>
                 <include path="PagarMe_Magento2::system/global.xml"/>
                 <include path="PagarMe_Magento2::system/customer.xml"/>
                 <include path="PagarMe_Magento2::system/transaction.xml"/>

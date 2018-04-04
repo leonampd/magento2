@@ -1,7 +1,7 @@
 <?php
 
 
-namespace MundiPagg\MundiPagg\Api\Data;
+namespace PagarMe\Magento2\Api\Data;
 
 interface ChargesSearchResultsInterface extends \Magento\Framework\Api\SearchResultsInterface
 {
@@ -9,13 +9,13 @@ interface ChargesSearchResultsInterface extends \Magento\Framework\Api\SearchRes
 
     /**
      * Get Charges list.
-     * @return \MundiPagg\MundiPagg\Api\Data\ChargesInterface[]
+     * @return \PagarMe\Magento2\Api\Data\ChargesInterface[]
      */
     public function getItems();
 
     /**
      * Set content list.
-     * @param \MundiPagg\MundiPagg\Api\Data\ChargesInterface[] $items
+     * @param \PagarMe\Magento2\Api\Data\ChargesInterface[] $items
      * @return $this
      */
     public function setItems(array $items);

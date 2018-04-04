@@ -93,6 +93,6 @@ class AdminContext extends RawMinkContext
 
     public function getModuleMenuBarId()
     {
-        return '#menu-mundipagg-top-level';
+        return '#menu-pagarme-top-level';
     }
 }

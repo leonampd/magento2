@@ -1,10 +1,3 @@
-/**
- * @author      MundiPagg Embeddables Team <embeddables@magento2.com>
- * @copyright   2017 MundiPagg (http://www.magento2.com)
- * @license     http://www.magento2.com  Copyright
- *
- * @link        http://www.magento2.com
- */
 /*browser:true*/
 /*global define*/
 define(

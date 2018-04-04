@@ -1,21 +1,21 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
     <event name="payment_method_assign_data_pagarme_creditcard">
-        <observer name="mundipagg_payment_method_assign_data_mundipagg_creditcard" instance="MundiPagg\MundiPagg\Observer\CreditCardDataAssignObserver" />
+        <observer name="pagarme_payment_method_assign_data_pagarme_creditcard" instance="PagarMe\Magento2\Observer\CreditCardDataAssignObserver" />
     </event>
-    <event name="payment_method_assign_data_mundipagg_billet_creditcard">
-        <observer name="mundipagg_payment_method_assign_data_mundipagg_billet_creditcard" instance="MundiPagg\MundiPagg\Observer\BilletCreditCardDataAssignObserver" />
+    <event name="payment_method_assign_data_pagarme_billet_creditcard">
+        <observer name="pagarme_payment_method_assign_data_pagarme_billet_creditcard" instance="PagarMe\Magento2\Observer\BilletCreditCardDataAssignObserver" />
     </event>
     <event name="sales_order_place_before">
-        <observer name="mundipagg_payment_sales_order_place_before_mundipagg_creditcard" instance="MundiPagg\MundiPagg\Observer\CreditCardOrderPlaceBeforeObserver" />
+        <observer name="pagarme_payment_sales_order_place_before_pagarme_creditcard" instance="PagarMe\Magento2\Observer\CreditCardOrderPlaceBeforeObserver" />
     </event>
-    <event name="payment_method_assign_data_mundipagg_two_creditcard">
-        <observer name="mundipagg_payment_method_assign_data_mundipagg_two_creditcard" instance="MundiPagg\MundiPagg\Observer\TwoCreditCardDataAssignObserver" />
+    <event name="payment_method_assign_data_pagarme_two_creditcard">
+        <observer name="pagarme_payment_method_assign_data_pagarme_two_creditcard" instance="PagarMe\Magento2\Observer\TwoCreditCardDataAssignObserver" />
     </event>
     <event name="sales_order_place_after">
-       <observer name="mundipagg_payment_method_mundipagg_credit_card_after_place_order" instance="MundiPagg\MundiPagg\Observer\SalesOrderPlaceAfter" />
+       <observer name="pagarme_payment_method_pagarme_credit_card_after_place_order" instance="PagarMe\Magento2\Observer\SalesOrderPlaceAfter" />
     </event>
     <event name="admin_system_config_changed_section_payment">
-        <observer name="Mundipagg_DataValidateAdmin" instance="MundiPagg\MundiPagg\Observer\DataValidateAdmin" />
+        <observer name="Pagarme_DataValidateAdmin" instance="PagarMe\Magento2\Observer\DataValidateAdmin" />
     </event>
 </config>

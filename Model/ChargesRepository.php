@@ -1,19 +1,19 @@
 <?php
 
 
-namespace MundiPagg\MundiPagg\Model;
+namespace PagarMe\Magento2\Model;
 
-use MundiPagg\MundiPagg\Api\ChargesRepositoryInterface;
-use MundiPagg\MundiPagg\Api\Data\ChargesSearchResultsInterfaceFactory;
-use MundiPagg\MundiPagg\Api\Data\ChargesInterfaceFactory;
+use PagarMe\Magento2\Api\ChargesRepositoryInterface;
+use PagarMe\Magento2\Api\Data\ChargesSearchResultsInterfaceFactory;
+use PagarMe\Magento2\Api\Data\ChargesInterfaceFactory;
 use Magento\Framework\Api\DataObjectHelper;
 use Magento\Framework\Api\SortOrder;
 use Magento\Framework\Exception\CouldNotDeleteException;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\Exception\CouldNotSaveException;
 use Magento\Framework\Reflection\DataObjectProcessor;
-use MundiPagg\MundiPagg\Model\ResourceModel\Charges as ResourceCharges;
-use MundiPagg\MundiPagg\Model\ResourceModel\Charges\CollectionFactory as ChargesCollectionFactory;
+use PagarMe\Magento2\Model\ResourceModel\Charges as ResourceCharges;
+use PagarMe\Magento2\Model\ResourceModel\Charges\CollectionFactory as ChargesCollectionFactory;
 use Magento\Store\Model\StoreManagerInterface;
 
 class ChargesRepository implements ChargesRepositoryInterface
@@ -70,7 +70,7 @@ class ChargesRepository implements ChargesRepositoryInterface
      * {@inheritdoc}
      */
     public function save(
-        \MundiPagg\MundiPagg\Api\Data\ChargesInterface $charges
+        \PagarMe\Magento2\Api\Data\ChargesInterface $charges
     ) {
         try {
             $charges->getResource()->save($charges);
@@ -134,7 +134,7 @@ class ChargesRepository implements ChargesRepositoryInterface
      * {@inheritdoc}
      */
     public function delete(
-        \MundiPagg\MundiPagg\Api\Data\ChargesInterface $charges
+        \PagarMe\Magento2\Api\Data\ChargesInterface $charges
     ) {
         try {
             $charges->getResource()->delete($charges);

@@ -1,24 +1,18 @@
 <?php
 /**
  * Class RequestDataProvider
- *
- * @author      MundiPagg Embeddables Team <embeddables@mundipagg.com>
- * @copyright   2017 MundiPagg (http://www.mundipagg.com)
- * @license     http://www.mundipagg.com Copyright
- *
- * @link        http://www.mundipagg.com
  */
 
-namespace MundiPagg\MundiPagg\Gateway\Transaction\Billet\ResourceGateway\Create;
+namespace PagarMe\Magento2\Gateway\Transaction\Billet\ResourceGateway\Create;
 
 
 use Magento\Checkout\Model\Session;
 use Magento\Payment\Gateway\Data\OrderAdapterInterface;
 use Magento\Payment\Model\InfoInterface;
-use MundiPagg\MundiPagg\Api\BilletRequestDataProviderInterface;
-use MundiPagg\MundiPagg\Gateway\Transaction\Base\ResourceGateway\AbstractRequestDataProvider;
-use MundiPagg\MundiPagg\Gateway\Transaction\Billet\Config\ConfigInterface;
-use MundiPagg\MundiPagg\Helper\CustomerAddressInterface;
+use PagarMe\Magento2\Api\BilletRequestDataProviderInterface;
+use PagarMe\Magento2\Gateway\Transaction\Base\ResourceGateway\AbstractRequestDataProvider;
+use PagarMe\Magento2\Gateway\Transaction\Billet\Config\ConfigInterface;
+use PagarMe\Magento2\Helper\CustomerAddressInterface;
 
 class RequestDataProvider
     extends AbstractRequestDataProvider

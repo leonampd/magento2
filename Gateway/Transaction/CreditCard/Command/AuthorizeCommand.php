@@ -1,17 +1,11 @@
 <?php
 /**
  * Class AuthorizeCommand
- *
- * @author      MundiPagg Embeddables Team <embeddables@mundipagg.com>
- * @copyright   2017 MundiPagg (http://www.mundipagg.com)
- * @license     http://www.mundipagg.com Copyright
- *
- * @link        http://www.mundipagg.com
  */
 
-namespace MundiPagg\MundiPagg\Gateway\Transaction\CreditCard\Command;
+namespace PagarMe\Magento2\Gateway\Transaction\CreditCard\Command;
 
-use MundiPagg\MundiPagg\Gateway\Transaction\Base\Command\AbstractApiCommand;
+use PagarMe\Magento2\Gateway\Transaction\Base\Command\AbstractApiCommand;
 
 class AuthorizeCommand extends AbstractApiCommand
 {
@@ -22,7 +16,7 @@ class AuthorizeCommand extends AbstractApiCommand
     protected function sendRequest($request)
     {
         if (!isset($request)) {
-            throw new \InvalidArgumentException('MundiPagg Request object should be provided');
+            throw new \InvalidArgumentException('PagarMe Request object should be provided');
         }
         return $request;
     }

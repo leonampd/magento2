@@ -1,28 +1,19 @@
 <?xml version="1.0"?>
-<!--
-/**
- * @author      MundiPagg Embeddables Team <embeddables@mundipagg.com>
- * @copyright   2017 MundiPagg (http://www.mundipagg.com)
- * @license     http://www.mundipagg.com Copyright
- *
- * @link        http://www.mundipagg.com
- */
--->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
     <default>
-        <mundipagg>
-            <mundipagg>
+        <pagarme>
+            <pagarme>
                 <sandbox_url>https://sandbox.mundipaggone.com</sandbox_url>
                 <production_url>https://transactionv2.mundipaggone.com</production_url>
-            </mundipagg>
-        </mundipagg>
+            </pagarme>
+        </pagarme>
         <payment>
-            <mundipagg_billet>
+            <pagarme_billet>
                 <active>1</active>
-                <model>MundiPaggBilletRemoteMethodAdapter</model>
+                <model>PagarMeBilletRemoteMethodAdapter</model>
                 <order_status>pending_payment</order_status>
                 <payment_action>authorize</payment_action>
-                <title>Billet</title>
+                <title>PagarMe Billet</title>
                 <can_authorize>1</can_authorize>
                 <can_capture>1</can_capture>
                 <can_use_checkout>1</can_use_checkout>
@@ -30,14 +21,14 @@
                 <sort_order>1</sort_order>
                 <can_initialize>1</can_initialize>
                 <expiration_days>5</expiration_days>
-            </mundipagg_billet>
+            </pagarme_billet>
 
             <pagarme_creditcard>
                 <active>1</active>
-                <model>MundiPaggCreditCardsRemoteMethodAdapter</model>
+                <model>PagarMeCreditCardsRemoteMethodAdapter</model>
                 <order_status>pending_payment</order_status>
                 <payment_action>authorize_capture</payment_action>
-                <title>Credit Card</title>
+                <title>PagarMe Credit Card</title>
                 <can_authorize>1</can_authorize>
                 <can_capture_partial>1</can_capture_partial>
                 <can_capture>1</can_capture>
@@ -57,12 +48,12 @@
                 <can_initialize>1</can_initialize>
                 <allow_multiple_address>0</allow_multiple_address>
             </pagarme_creditcard>
-            <mundipagg_billet_creditcard>
+            <pagarme_billet_creditcard>
                 <active>1</active>
-                <model>MundiPaggBilletCreditCardsRemoteMethodAdapter</model>
+                <model>PagarMeBilletCreditCardsRemoteMethodAdapter</model>
                 <order_status>pending_payment</order_status>
                 <payment_action>authorize</payment_action>
-                <title>MundiPagg Billet Credit Card</title>
+                <title>PagarMe Billet Credit Card</title>
                 <can_authorize>1</can_authorize>
                 <can_capture_partial>1</can_capture_partial>
                 <can_capture>1</can_capture>
@@ -81,13 +72,13 @@
                 <installments_max_without_interest>6</installments_max_without_interest>
                 <can_initialize>1</can_initialize>
                 <allow_multiple_address>0</allow_multiple_address>
-            </mundipagg_billet_creditcard>
-            <mundipagg_two_creditcard>
+            </pagarme_billet_creditcard>
+            <pagarme_two_creditcard>
                 <active>1</active>
-                <model>MundiPaggTwoCreditCardRemoteMethodAdapter</model>
+                <model>PagarMeTwoCreditCardRemoteMethodAdapter</model>
                 <order_status>pending_payment</order_status>
                 <payment_action>authorize</payment_action>
-                <title>MundiPagg Two Credit Cards</title>
+                <title>PagarMe Two Credit Cards</title>
                 <can_authorize>1</can_authorize>
                 <can_capture_partial>1</can_capture_partial>
                 <can_capture>1</can_capture>
@@ -106,7 +97,7 @@
                 <installments_max_without_interest>6</installments_max_without_interest>
                 <can_initialize>1</can_initialize>
                 <allow_multiple_address>0</allow_multiple_address>
-            </mundipagg_two_creditcard>
+            </pagarme_two_creditcard>
         </payment>
     </default>
 </config>

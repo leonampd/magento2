@@ -1,22 +1,16 @@
 <?php
 /**
  * Class AbstractApiCommand
- *
- * @author      MundiPagg Embeddables Team <embeddables@mundipagg.com>
- * @copyright   2017 MundiPagg (http://www.mundipagg.com)
- * @license     http://www.mundipagg.com Copyright
- *
- * @link        http://www.mundipagg.com
  */
 
-namespace MundiPagg\MundiPagg\Gateway\Transaction\Base\Command;
+namespace PagarMe\Magento2\Gateway\Transaction\Base\Command;
 
 use Magento\Payment\Gateway\CommandInterface;
 use Magento\Payment\Gateway\Request\BuilderInterface as RequestBuilder;
 use Magento\Payment\Gateway\Response\HandlerInterface as ResponseHandler;
 use Magento\Payment\Gateway\Validator\ValidatorInterface;
 use Magento\Payment\Gateway\Command\CommandException;
-use MundiPagg\MundiPagg\Gateway\Transaction\Base\Config\ConfigInterface;
+use PagarMe\Magento2\Gateway\Transaction\Base\Config\ConfigInterface;
 
 abstract class AbstractApiCommand implements CommandInterface
 {

@@ -8,7 +8,7 @@ trait BilletConfigProvider
     public function getBilletConfig()
     {
         $moduleBilletConfigs = [
-            'payment/mundipagg_billet/types' => 'Bradesco',
+            'payment/pagarme_billet/types' => 'Bradesco',
         ];
 
         return $moduleBilletConfigs;

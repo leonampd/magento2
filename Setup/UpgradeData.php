@@ -1,7 +1,7 @@
 <?php
 
 
-namespace MundiPagg\MundiPagg\Setup;
+namespace PagarMe\Magento2\Setup;
 
 use Magento\Framework\Setup\UpgradeDataInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
@@ -39,7 +39,7 @@ class UpgradeData implements UpgradeDataInterface
         $installer->startSetup();
  
         // Get tutorial_simplenews table
-        $tableName = $installer->getTable('mundipagg_mundipagg_charges');
+        $tableName = $installer->getTable('pagarme_magento2_charges');
         // Check if the table already exists
         if ($installer->getConnection()->isTableExists($tableName) != true) {
             // Create tutorial_simplenews table
@@ -127,7 +127,7 @@ class UpgradeData implements UpgradeDataInterface
                     ['nullable' => false],
                     'Updated At'
                 )
-                ->setComment('Mundipagg Charges')
+                ->setComment('Pagarme Charges')
                 ->setOption('type', 'InnoDB')
                 ->setOption('charset', 'utf8');
             $installer->getConnection()->createTable($table);

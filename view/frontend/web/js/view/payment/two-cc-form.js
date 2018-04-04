@@ -25,7 +25,7 @@ define(
                 creditCardSsStartMonthFirst: '',
                 creditCardSsStartYearFirst: '',
                 creditCardSsIssueFirst: '',
-                creditSavedCardFirst: window.checkoutConfig.payment.mundipagg_two_creditcard.selected_card,
+                creditSavedCardFirst: window.checkoutConfig.payment.pagarme_two_creditcard.selected_card,
                 creditCardVerificationNumberFirst: '',
                 selectedCardTypeFirst: null,
                 creditCardTypeSecond: '',
@@ -36,7 +36,7 @@ define(
                 creditCardSsStartMonthSecond: '',
                 creditCardSsStartYearSecond: '',
                 creditCardSsIssueSecond: '',
-                creditSavedCardSecond: window.checkoutConfig.payment.mundipagg_two_creditcard.selected_card,
+                creditSavedCardSecond: window.checkoutConfig.payment.pagarme_two_creditcard.selected_card,
                 creditCardVerificationNumberSecond: '',
                 selectedCardTypeSecond: null
             },
@@ -208,7 +208,7 @@ define(
             },
 
             isSaveCardActive: function() {
-                return (window.isCustomerLoggedIn && window.checkoutConfig.payment.mundipagg_two_creditcard.is_saved_card);
+                return (window.isCustomerLoggedIn && window.checkoutConfig.payment.pagarme_two_creditcard.is_saved_card);
             },
 
             getSaveCardHelpHtml: function () {
@@ -216,11 +216,11 @@ define(
             },
 
             isSaveCardHave: function() {
-                return window.checkoutConfig.payment.mundipagg_two_creditcard.is_saved_card;
+                return window.checkoutConfig.payment.pagarme_two_creditcard.is_saved_card;
             },
 
             isSaveCardStyle: function() {
-                if (window.checkoutConfig.payment.mundipagg_two_creditcard.selected_card) {
+                if (window.checkoutConfig.payment.pagarme_two_creditcard.selected_card) {
                     return 'display: none;';
                 }
 
@@ -232,7 +232,7 @@ define(
             },
 
             getCardsCustomer:function () {
-                return _.map(window.checkoutConfig.payment.mundipagg_two_creditcard.cards, function (value, key) {
+                return _.map(window.checkoutConfig.payment.pagarme_two_creditcard.cards, function (value, key) {
                     return {
                         'key': value.id,
                         'value': value.id,
@@ -246,7 +246,7 @@ define(
              * @returns {Object}
              */
             getCcAvailableTypes: function () {
-                return window.checkoutConfig.payment.ccform.availableTypes['mundipagg_creditcard'];
+                return window.checkoutConfig.payment.ccform.availableTypes['pagarme_creditcard'];
             },
 
             /**

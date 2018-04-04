@@ -1,22 +1,16 @@
 <?php
 /**
  * Class Builder
- *
- * @author      MundiPagg Embeddables Team <embeddables@mundipagg.com>
- * @copyright   2017 MundiPagg (http://www.mundipagg.com)
- * @license     http://www.mundipagg.com Copyright
- *
- * @link        http://www.mundipagg.com
  */
 
-namespace MundiPagg\MundiPagg\Model\Installments;
+namespace PagarMe\Magento2\Model\Installments;
 
 
 use Magento\Framework\Api\AbstractSimpleObjectBuilder;
 use Magento\Framework\Api\ObjectFactory;
-use MundiPagg\MundiPagg\Api\Data\InstallmentInterface;
-use MundiPagg\MundiPagg\Api\Data\InstallmentInterfaceFactory;
-use MundiPagg\MundiPagg\Model\Installments\Config\ConfigInterface;
+use PagarMe\Magento2\Api\Data\InstallmentInterface;
+use PagarMe\Magento2\Api\Data\InstallmentInterfaceFactory;
+use PagarMe\Magento2\Model\Installments\Config\ConfigInterface;
 use Magento\Checkout\Model\Session;
 
 class Builder extends AbstractSimpleObjectBuilder

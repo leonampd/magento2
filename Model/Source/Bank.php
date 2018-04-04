@@ -1,19 +1,10 @@
 <?php
-/**
- * Class PaymentAction
- *
- * @author      MundiPagg Embeddables Team <embeddables@mundipagg.com>
- * @copyright   2017 MundiPagg (http://www.mundipagg.com)
- * @license     http://www.mundipagg.com Copyright
- *
- * @link        http://www.mundipagg.com
- */
 
-namespace MundiPagg\MundiPagg\Model\Source;
+namespace PagarMe\Magento2\Model\Source;
 
 
 use Magento\Framework\Option\ArrayInterface;
-use MundiPagg\MundiPagg\Model\Enum\BankEnum;
+use PagarMe\Magento2\Model\Enum\BankEnum;
 
 class Bank implements ArrayInterface
 {

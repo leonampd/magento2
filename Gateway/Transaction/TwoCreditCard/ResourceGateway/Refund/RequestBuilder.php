@@ -1,31 +1,25 @@
 <?php
 /**
  * Class RequestBuilder
- *
- * @author      MundiPagg Embeddables Team <embeddables@mundipagg.com>
- * @copyright   2017 MundiPagg (http://www.mundipagg.com)
- * @license     http://www.mundipagg.com Copyright
- *
- * @link        http://www.mundipagg.com
  */
 
-namespace MundiPagg\MundiPagg\Gateway\Transaction\TwoCreditCard\Resource\Refund;
+namespace PagarMe\Magento2\Gateway\Transaction\TwoCreditCard\Resource\Refund;
 
 use Magento\Payment\Gateway\Data\OrderAdapterInterface;
 use Magento\Payment\Model\InfoInterface;
 use Magento\Sales\Model\Order\Item;
-use MundiPagg\MundiPagg\Api\CartItemRequestDataProviderInterface;
-use MundiPagg\MundiPagg\Api\CreditCardRequestDataProviderInterface;
+use PagarMe\Magento2\Api\CartItemRequestDataProviderInterface;
+use PagarMe\Magento2\Api\CreditCardRequestDataProviderInterface;
 use Magento\Payment\Gateway\Data\PaymentDataObjectInterface;
 use Magento\Payment\Gateway\Request\BuilderInterface;
 use MundiAPILib\Models\CreateOrderRequest as Request;
-use MundiPagg\MundiPagg\Api\CreditCardRequestDataProviderInterfaceFactory;
-use MundiPagg\MundiPagg\Api\CartItemRequestDataProviderInterfaceFactory;
+use PagarMe\Magento2\Api\CreditCardRequestDataProviderInterfaceFactory;
+use PagarMe\Magento2\Api\CartItemRequestDataProviderInterfaceFactory;
 use Magento\Checkout\Model\Cart;
-use MundiPagg\MundiPagg\Gateway\Transaction\Base\Config\Config;
-use MundiPagg\MundiPagg\Gateway\Transaction\TwoCreditCard\Config\Config as ConfigCreditCard;
-use MundiPagg\MundiPagg\Model\ChargesFactory;
-use MundiPagg\MundiPagg\Helper\Logger;
+use PagarMe\Magento2\Gateway\Transaction\Base\Config\Config;
+use PagarMe\Magento2\Gateway\Transaction\TwoCreditCard\Config\Config as ConfigCreditCard;
+use PagarMe\Magento2\Model\ChargesFactory;
+use PagarMe\Magento2\Helper\Logger;
 
 class RequestBuilder implements BuilderInterface
 {
@@ -39,12 +33,12 @@ class RequestBuilder implements BuilderInterface
     protected $configCreditCard;
 
     /**
-     * \MundiPagg\MundiPagg\Model\ChargesFactory
+     * \PagarMe\Magento2\Model\ChargesFactory
      */
     protected $modelCharges;
 
     /**
-     * @var \MundiPagg\MundiPagg\Helper\Logger
+     * @var \PagarMe\Magento2\Helper\Logger
      */
     protected $logger;
 

@@ -1,19 +1,13 @@
 <?php
 /**
  * Class Installment
- *
- * @author      MundiPagg Embeddables Team <embeddables@mundipagg.com>
- * @copyright   2017 MundiPagg (http://www.mundipagg.com)
- * @license     http://www.mundipagg.com Copyright
- *
- * @link        http://www.mundipagg.com
  */
 
-namespace MundiPagg\MundiPagg\Model;
+namespace PagarMe\Magento2\Model;
 
 
 use Magento\Framework\DataObject;
-use MundiPagg\MundiPagg\Api\Data\InstallmentInterface;
+use PagarMe\Magento2\Api\Data\InstallmentInterface;
 use Magento\Framework\Pricing\Helper\Data;
 
 class Installment extends DataObject implements InstallmentInterface

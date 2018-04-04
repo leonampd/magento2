@@ -1,7 +1,7 @@
 <?php
 
 
-namespace MundiPagg\MundiPagg\Setup;
+namespace PagarMe\Magento2\Setup;
 
 use Magento\Framework\Setup\UpgradeSchemaInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
@@ -37,7 +37,7 @@ class UpgradeSchema implements UpgradeSchemaInterface
         $installer->startSetup();
  
         // Get tutorial_simplenews table
-        $tableName = $installer->getTable('mundipagg_mundipagg_cards');
+        $tableName = $installer->getTable('pagarme_magento2_cards');
         // Check if the table already exists
         if ($installer->getConnection()->isTableExists($tableName) != true) {
             // Create tutorial_simplenews table
@@ -97,7 +97,7 @@ class UpgradeSchema implements UpgradeSchemaInterface
                     ['nullable' => false],
                     'Updated At'
                 )
-                ->setComment('Mundipagg Card Tokens')
+                ->setComment('Pagarme Card Tokens')
                 ->setOption('type', 'InnoDB')
                 ->setOption('charset', 'utf8');
             $installer->getConnection()->createTable($table);
@@ -116,7 +116,7 @@ class UpgradeSchema implements UpgradeSchemaInterface
         $connection = $installer->getConnection();
 
         $connection->addColumn(
-            $installer->getTable('mundipagg_mundipagg_cards'),
+            $installer->getTable('pagarme_magento2_cards'),
             'brand',
             [
                 'type' => Table::TYPE_TEXT,

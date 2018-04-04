@@ -1,15 +1,9 @@
 <?php
 
-namespace MundiPagg\MundiPagg\Model\Source;
+namespace PagarMe\Magento2\Model\Source;
 
 /**
  * CC Types
- *
- * @author      MundiPagg Embeddables Team <embeddables@mundipagg.com>
- * @copyright   2017 MundiPagg (http://www.mundipagg.com)
- * @license     http://www.mundipagg.com  Copyright
- *
- * @link        http://www.mundipagg.com
  */
 
 class Cctype extends \Magento\Payment\Model\Source\Cctype

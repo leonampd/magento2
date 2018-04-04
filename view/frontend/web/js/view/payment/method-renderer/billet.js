@@ -1,9 +1,3 @@
-/**
- * @author      MundiPagg Embeddables Team <embeddables@mundipagg.com>
- * @copyright   2017 MundiPagg (http://www.mundipagg.com)
- * @license     http://www.mundipagg.com  Copyright
- *
- * @link        http://www.mundipagg.com
  */
 /*browser:true*/
 /*global define*/
@@ -27,7 +21,7 @@ define(
                 template: 'PagarMe_Magento2/payment/billet'
             },
             getText: function () {
-                return window.checkoutConfig.payment.mundipagg_billet.text;
+                return window.checkoutConfig.payment.pagarme_billet.text;
             },
             /**
              * Select current payment token
