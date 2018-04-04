@@ -1,4 +1,4 @@
- */
+/*
 /*browser:true*/
 /*global define*/
 define(
