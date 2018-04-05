@@ -16,6 +16,9 @@ before_install:
 script:
   - echo "MODULE_PUBLIC_KEY=$MODULE_PUBLIC_KEY" >> .env
   - echo "MODULE_SECRET_KEY=$MODULE_SECRET_KEY" >> .env
-  - docker-compose up -d && docker-compose exec magento install_pagarme && docker-compose exec magento update && docker-compose exec magento composer require magento/module-catalog-sample-data --dev
+  - docker-compose up -d
+  - docker-compose exec magento install_pagarme 
+  - docker-compose exec magento composer require magento/module-catalog-sample-data --dev
   - docker-compose exec db sh -c 'mysql -uroot -D magento < /app/magento.sql'
+  - docker-compose exec magento update
   - docker-compose exec magento behat --config ${PATH_MODULE}/behat.yml --stop-on-failure
