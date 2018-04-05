@@ -167,6 +167,10 @@ abstract class PaymentContext extends RawMinkContext
     public function thePurchaseMustBePaidWithSuccess()
     {
         $page = $this->page;
+        $this->getSession()->wait(
+            2000,
+            "document.querySelector('.page-title-wrapper').style.display == 'block'"
+        );
         $this->spin(
             function($context) use ($page) {
                 $pageTitle = $this->page->find('css', '.page-title-wrapper')->getText();
