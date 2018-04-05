@@ -48,7 +48,10 @@
             "/docker",
             "docker-compose.yml",
             ".travis.yml",
-            ".env"
+            ".env",
+            "PULLREQUEST-TEMPLATE.md",
+            "ISSUE-TEMPLATE.md",
+            ".idea"
         ]
     }
 }
