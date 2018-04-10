@@ -136,7 +136,7 @@ class WebhookManagement implements WebhookManagementInterface
             ];
         }
 
-        if ($order->canCreditmemo() && $charge['status'] == 'refunded') {
+        if ($order->canCreditmemo() && $charge['status'] == 'canceled') {
             $creditmemo = $this->createCreditMemo($order);
             $result[] = [
                 "order" => "canCreditmemo",
@@ -211,7 +211,7 @@ class WebhookManagement implements WebhookManagementInterface
             $chargeCollection->setStatus($statusCharge)->setPaidAmount($amount)->setUpdatedAt(date("Y-m-d H:i:s"));
         }
         
-        if ($statusCharge == 'refunded') {
+        if ($statusCharge == 'canceled') {
             $chargeCollection->setStatus($statusCharge)->setRefundedAmount($amount)->setUpdatedAt(date("Y-m-d H:i:s"));
         }
 
