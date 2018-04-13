@@ -310,7 +310,6 @@ class RequestBuilder implements BuilderInterface
                 $refund->code = $charge->getCode();
                 $this->getLogger()->logger($refund->jsonSerialize());
                 $response = $this->getApi()->getCharges()->cancelCharge($charge->getChargeId(), $refund);
-    
             } catch (\MundiAPILib\Exceptions\ErrorException $error) {
                 $this->getLogger()->logger($error);
                 throw new \InvalidArgumentException($error->message);
@@ -318,7 +317,6 @@ class RequestBuilder implements BuilderInterface
                 $this->getLogger()->logger($ex);
                 throw new \InvalidArgumentException($ex->getMessage());
             }
-            $this->getLogger()->logger($response);
 
             return $response;
         }else{
@@ -338,7 +336,6 @@ class RequestBuilder implements BuilderInterface
                 }
             }
         }
-        $this->getLogger()->logger($responseArray);
 
         return $responseArray;
     }
